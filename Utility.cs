@@ -19,16 +19,22 @@
         => (T[])Enum.GetValues(typeof(T));
 
         /// <summary> Returns an intersection of all chosen enumerables. </summary>
-        static public List<T> Intersect<T>(IEnumerable<IEnumerable<T>> lists)
+        static public List<T> Intersect<T>(IEnumerable<IEnumerable<T>> t)
         {
-            if (lists == null || !lists.Any())
+            if (t == null || !t.Any())
                 return new List<T>();
 
-            HashSet<T> hashSet = new HashSet<T>(lists.First());
-            foreach (var list in lists.Skip(1))
-                hashSet.IntersectWith(list);
+            HashSet<T> hashSet = new HashSet<T>(t.First());
+            foreach (var enumerable in t.Skip(1))
+                hashSet.IntersectWith(enumerable);
             return hashSet.ToList();
         }
+
+#if NET35
+        /// <summary> Returns an intersection of all chosen enumerables. </summary>
+        static public List<T> Intersect<T>(IEnumerable<List<T>> t)
+        => Intersect((IEnumerable<IEnumerable<T>>)t);
+#endif
 
         /// <summary> Swaps the reference of object t with a. </summary>
         static public void Swap<T>(ref T t, ref T a)
