@@ -2,8 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
+    using System.Text;
+
     static public class Utility
     {
         /// <summary> Returns an enumerable of all types in the chosen (or calling) assembly that derive from type T. Ignores unbound generic types. </summary>
@@ -28,6 +31,43 @@
             foreach (var enumerable in t.Skip(1))
                 hashSet.IntersectWith(enumerable);
             return hashSet.ToList();
+        }
+
+        /// <summary> Returns a method that's n stack frames above the method you're currently in. </summary>
+        static public MethodBase GetStackMethod(int frame = 2)
+        => new StackFrame(frame).GetMethod();
+
+        /// <summary> Returns a formatted list of all methods on the stack. </summary>
+        static public string GetFormattedStack(int skipFrames = 1)
+        {
+            // Initialize
+            StackFrame[] stackFrames = new StackTrace(skipFrames).GetFrames();
+            StringBuilder builder = new StringBuilder();
+
+            // Find longest type
+            int longestType = 0;
+            foreach (var frame in stackFrames)
+            {
+                MethodBase method = frame.GetMethod();
+                int typeLength = method.DeclaringType.ToString().Length;
+                if (method.IsStatic)
+                    typeLength += 7;
+                if (typeLength > longestType)
+                    longestType = typeLength;
+            }
+
+            // Append methods
+            foreach (var frame in stackFrames)
+            {
+                MethodBase method = frame.GetMethod();
+                string typeText = method.IsStatic ? "static " : "";
+                typeText += method.DeclaringType;
+                typeText = typeText.PadLeft(longestType, ' ');
+                builder.Append(typeText).Append(".").AppendLine(method.Name);
+            }
+
+            // print
+            return builder.ToString();
         }
 
 #if NET35
