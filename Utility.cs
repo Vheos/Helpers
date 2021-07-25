@@ -6,7 +6,6 @@
     using System.Linq;
     using System.Reflection;
     using System.Text;
-
     static public class Utility
     {
         /// <summary> Returns an enumerable of all types in the chosen (or calling) assembly that derive from type T. Ignores unbound generic types. </summary>
@@ -70,12 +69,6 @@
             return builder.ToString();
         }
 
-#if NET35
-        /// <summary> Returns an intersection of all chosen enumerables. </summary>
-        static public List<T> Intersect<T>(IEnumerable<List<T>> t)
-        => Intersect((IEnumerable<IEnumerable<T>>)t);
-#endif
-
         /// <summary> Swaps the reference of object t with a. </summary>
         static public void Swap<T>(ref T t, ref T a)
         {
@@ -83,14 +76,12 @@
             t = a;
             a = temp;
         }
-    }
-}
 
 
-
-namespace Vheos.Tools.UtilityNS.Unity
-{
-    static public class UnityUtility
-    {
+#if NET35
+        /// <summary> Returns an intersection of all chosen lists. </summary>
+        static public List<T> Intersect<T>(IEnumerable<List<T>> t)
+        => Intersect((IEnumerable<IEnumerable<T>>)t);
+#endif
     }
 }
