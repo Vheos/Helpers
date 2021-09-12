@@ -3,7 +3,7 @@
     using System;
     using System.Collections;
     using UnityEngine;
-    static internal class Coroutines
+    static public class Coroutines
     {
 #if UNITY
         static public IEnumerator AfterUpdate(Action action)
