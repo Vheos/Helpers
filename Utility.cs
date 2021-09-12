@@ -1,4 +1,4 @@
-﻿namespace Vheos.Tools.UtilityNS
+﻿namespace Vheos.Tools.UtilityN
 {
     using System;
     using System.Collections.Generic;
