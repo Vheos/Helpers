@@ -7,8 +7,8 @@
     <ProjectGuid>{96D2CDB1-5EE9-4666-812D-9ECB8DF005C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tools.Utility</RootNamespace>
-    <AssemblyName>Tools.Utility</AssemblyName>
+    <RootNamespace>Vheos.Tools.Utility</RootNamespace>
+    <AssemblyName>Vheos.Tools.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
