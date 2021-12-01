@@ -98,4 +98,8 @@
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).dll" "E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\"
+copy "$(TargetDir)$(TargetName).xml" "E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
