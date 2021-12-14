@@ -20,6 +20,13 @@
         static public T[] GetEnumValues<T>() where T : Enum
         => (T[])Enum.GetValues(typeof(T));
 
+        /// <summary> Returns an array of all values defined in the given enums. </summary>
+        static public IEnumerable<string> GetEnumValuesAsStrings<T>() where T : Enum
+        {
+            foreach (var value in Enum.GetValues(typeof(T)))
+                yield return value.ToString();
+        }
+
         /// <summary> Returns an intersection of all chosen enumerables. </summary>
         static public List<T> Intersect<T>(IEnumerable<IEnumerable<T>> t)
         {
