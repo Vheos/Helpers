@@ -16,16 +16,24 @@
             return assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(T)) && !t.IsGenericTypeDefinition);
         }
 
-        /// <summary> Returns an array of all values defined in the given enums. </summary>
+        /// <summary> Returns an array of all values defined in the given enum. </summary>
         static public T[] GetEnumValues<T>() where T : Enum
         => (T[])Enum.GetValues(typeof(T));
 
-        /// <summary> Returns an array of all values defined in the given enums. </summary>
+        /// <summary> Returns an enumerable of all values defined in the given enum as strings. </summary>
         static public IEnumerable<string> GetEnumValuesAsStrings<T>() where T : Enum
         {
             foreach (var value in Enum.GetValues(typeof(T)))
                 yield return value.ToString();
         }
+
+        /// <summary> Returns an array of all values defined in the given enum. </summary>
+        static public string[] GetEnumNames<T>() where T : Enum
+        => Enum.GetNames(typeof(T));
+
+        /// <summary> Returns an array of all values defined in the given enum. </summary>
+        static public T ParseEnum<T>(string text) where T : Enum
+        => (T)Enum.Parse(typeof(T), text);
 
         /// <summary> Returns an intersection of all chosen enumerables. </summary>
         static public List<T> Intersect<T>(IEnumerable<IEnumerable<T>> t)
