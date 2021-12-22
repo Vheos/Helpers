@@ -14,31 +14,20 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\RELEASE\</OutputPath>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Debug\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DocumentationFile>bin\RELEASE\Vheos.Tools.Utility.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Release\Vheos.Tools.Utility.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_UNITY|AnyCPU'">
-    <OutputPath>bin\Release_UNITY\</OutputPath>
-    <DefineConstants>TRACE;UNITY</DefineConstants>
-    <DocumentationFile>bin\Release_UNITY\Vheos.Tools.Utility.xml</DocumentationFile>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY|AnyCPU' ">
+    <OutputPath>bin\UNITY\</OutputPath>
+    <DefineConstants>TRACE;RELEASE, UNITY</DefineConstants>
+    <DocumentationFile>bin\UNITY\Vheos.Tools.Utility.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,9 +36,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_UNITY_2018|AnyCPU' ">
-    <OutputPath>bin\Release_UNITY_2018\</OutputPath>
-    <DefineConstants>TRACE;UNITY, UNITY2018</DefineConstants>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY_2018|AnyCPU' ">
+    <OutputPath>bin\UNITY_2018\</OutputPath>
+    <DefineConstants>TRACE;RELEASE, UNITY, UNITY2018</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,11 +46,11 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Release_UNITY_2018\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DocumentationFile>bin\UNITY_2018\Vheos.Tools.Utility.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_UNITY_2018_NET35|AnyCPU' ">
-    <OutputPath>bin\Release_UNITY_2018_NET35\</OutputPath>
-    <DefineConstants>TRACE;UNITY, UNITY2018, NET35</DefineConstants>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY_2018_NET35|AnyCPU' ">
+    <OutputPath>bin\UNITY_2018_NET35\</OutputPath>
+    <DefineConstants>TRACE;RELEASE, UNITY, UNITY2018, NET35</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,7 +58,11 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Release_UNITY_2018_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DocumentationFile>bin\UNITY_2018_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '-|AnyCPU'">
+    <OutputPath>bin\-\</OutputPath>
+    <DocumentationFile>bin\-\Vheos.Tools.Utility.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="2018.4.36f1_UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2018'))">
@@ -99,7 +92,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetName).dll" "E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\"
-copy "$(TargetDir)$(TargetName).xml" "E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
