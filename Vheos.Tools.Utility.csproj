@@ -92,7 +92,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\
+
+xcopy /y $(TargetDir)$(TargetName).dll %25UnityCorePlugins_Global%25
+xcopy /y $(TargetDir)$(TargetName).xml %25UnityCorePlugins_Global%25</PostBuildEvent>
   </PropertyGroup>
 </Project>
