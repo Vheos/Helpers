@@ -1,11 +1,12 @@
-﻿namespace Vheos.Tools.UtilityN
+﻿#if UNITY && !UNITY5
+namespace Vheos.Tools.UtilityN
 {
     using System;
     using System.Collections;
     using UnityEngine;
     static public class Coroutines
     {
-#if UNITY
+
         static public IEnumerator AfterUpdate(Action action)
         {
             yield return new WaitForEndOfFrame();
@@ -48,6 +49,6 @@
             }
             finalAction?.Invoke();
         }
-#endif
     }
 }
+#endif
