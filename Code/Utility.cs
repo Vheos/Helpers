@@ -92,7 +92,6 @@
             a = temp;
         }
 
-
 #if NET35
         /// <summary> Returns an intersection of all chosen lists. </summary>
         static public List<T> Intersect<T>(IEnumerable<List<T>> t)

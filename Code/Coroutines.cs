@@ -1,4 +1,4 @@
-﻿#if UNITY && !UNITY5
+﻿#if UNITY
 namespace Vheos.Tools.UtilityN
 {
     using System;

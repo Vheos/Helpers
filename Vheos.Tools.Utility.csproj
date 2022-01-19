@@ -14,94 +14,60 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE|AnyCPU' ">
-    <DefineConstants>RELEASE</DefineConstants>
-    <OutputPath>bin\C#\</OutputPath>
-    <DocumentationFile>bin\C#\Vheos.Tools.Utility.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY2021|AnyCPU' ">
-    <DefineConstants>RELEASE;UNITY;UNITY2021</DefineConstants>
-    <OutputPath>bin\UNITY2021\</OutputPath>
-    <DocumentationFile>bin\UNITY2021\Vheos.Tools.Utility.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY2018|AnyCPU' ">
-    <DefineConstants>RELEASE;UNITY;UNITY2018</DefineConstants>
-    <OutputPath>bin\UNITY2018\</OutputPath>
-    <DocumentationFile>bin\UNITY2018\Vheos.Tools.Utility.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY2018_NET35|AnyCPU' ">
-    <DefineConstants>RELEASE;UNITY;UNITY2018;NET35</DefineConstants>
-    <OutputPath>bin\UNITY2018_NET35\</OutputPath>
-    <DocumentationFile>bin\UNITY2018_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RELEASE_UNITY5_NET35|AnyCPU' ">
-    <DefineConstants>RELEASE;UNITY;UNITY5;NET35</DefineConstants>
-    <OutputPath>bin\UNITY5_NET35\</OutputPath>
-    <DocumentationFile>bin\UNITY5_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '-|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '-|AnyCPU' ">
     <OutputPath>bin\-\</OutputPath>
+    <DocumentationFile>bin\-\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DefineConstants>DEBUG</DefineConstants>
+    <LangVersion>9.0</LangVersion>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY|AnyCPU' ">
+    <OutputPath>bin\UNITY\</OutputPath>
+    <DocumentationFile>bin\UNITY\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DefineConstants>DEBUG;UNITY</DefineConstants>
+    <LangVersion>9.0</LangVersion>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NET35|AnyCPU' ">
+    <OutputPath>bin\UNITY_NET35\</OutputPath>
+    <DocumentationFile>bin\UNITY_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DefineConstants>DEBUG;UNITY;NET35</DefineConstants>
+    <LangVersion>9.0</LangVersion>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NOMODULES_NET35|AnyCPU' ">
+    <OutputPath>bin\UNITY_NOMODULES_NET35\</OutputPath>
+    <DocumentationFile>bin\UNITY_NOMODULES_NET35\Vheos.Tools.Utility.xml</DocumentationFile>
+    <DefineConstants>DEBUG;UNITY;NOMODULES;NET35</DefineConstants>
+    <LangVersion>9.0</LangVersion>
+    <Optimize>true</Optimize>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2021'))">
-      <HintPath>..\..\Libraries\Unity (2021.1.12f1)\2021.1.12f1_UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
+      <HintPath>..\..\Libraries\v2021.2.8f1\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2021'))">
-      <HintPath>..\..\Libraries\Unity (2021.1.12f1)\2021.1.12f1_UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine.CoreModule" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
+      <HintPath>..\..\Libraries\v2021.2.8f1\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.PhysicsModule" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2021'))">
-      <HintPath>..\..\Libraries\Unity (2021.1.12f1)\2021.1.12f1_UnityEngine.PhysicsModule.dll</HintPath>
+    <Reference Include="UnityEngine.PhysicsModule" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
+      <HintPath>..\..\Libraries\v2021.2.8f1\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2021'))">
-      <HintPath>..\..\Libraries\Unity (2021.1.12f1)\2021.1.12f1_UnityEngine.InputLegacyModule.dll</HintPath>
+    <Reference Include="UnityEngine.InputLegacyModule" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
+      <HintPath>..\..\Libraries\v2021.2.8f1\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2018'))">
-      <HintPath>..\..\Libraries\Unity (2018.4.36f1)\2018.4.36f1_UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2018'))">
-      <HintPath>..\..\Libraries\Unity (2018.4.36f1)\2018.4.36f1_UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY2018'))">
-      <HintPath>..\..\Libraries\Unity (2018.4.36f1)\2018.4.36f1_UnityEngine.PhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('UNITY5'))">
-      <HintPath>..\..\Libraries\Unity (5.0.3p3)\5.0.3p3_UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND $(DefineConstants.Contains('NOMODULES'))">
+      <HintPath>..\..\Libraries\v2017.1.5f1\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Coroutines.cs" />
@@ -111,9 +77,11 @@
   <PropertyGroup>
     <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\
 
-if $(DefineConstants.Contains('UNITY2021'))==True (
+if $(DefineConstants.Contains('UNITY'))==True (
+  if $(DefineConstants.Contains('NOMODULES'))==False (
     xcopy /y $(TargetDir)$(TargetName).dll %25UnityCorePlugins_Global%25
     xcopy /y $(TargetDir)$(TargetName).xml %25UnityCorePlugins_Global%25
+  )
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>
