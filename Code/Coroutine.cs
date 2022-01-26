@@ -1,10 +1,11 @@
 ﻿#if UNITY
-namespace Vheos.Tools.UtilityN
+namespace Vheos.Tools.Utilities
 {
     using System;
     using System.Collections;
     using UnityEngine;
-    static public class Coroutines
+
+    static public class Coroutine
     {
 
         static public IEnumerator AfterUpdate(Action action)
