@@ -1,4 +1,4 @@
-﻿namespace Vheos.Tools.UtilityN
+﻿namespace Vheos.Tools.Utilities
 {
     using System;
     using System.Collections.Generic;
@@ -6,6 +6,8 @@
     using System.Linq;
     using System.Reflection;
     using System.Text;
+    using UnityEngine;
+
     static public class Utility
     {
         /// <summary> Returns an enumerable of all types in the chosen (or calling) assembly that derive from type T. Ignores unbound generic types. </summary>
@@ -41,7 +43,7 @@
             if (t == null || !t.Any())
                 return new List<T>();
 
-            HashSet<T> hashSet = new HashSet<T>(t.First());
+            HashSet<T> hashSet = new(t.First());
             foreach (var enumerable in t.Skip(1))
                 hashSet.IntersectWith(enumerable);
             return hashSet.ToList();
@@ -56,7 +58,7 @@
         {
             // Initialize
             StackFrame[] stackFrames = new StackTrace(skipFrames).GetFrames();
-            StringBuilder builder = new StringBuilder();
+            StringBuilder builder = new();
 
             // Find longest type
             int longestType = 0;
@@ -83,6 +85,14 @@
             // print
             return builder.ToString();
         }
+
+        static public float HalfTimeToLerpAlpha(float halfTime, float deltaTime)
+        => halfTime == 0f ? 1f : 1f - (float)Math.Pow(0.5f, deltaTime / halfTime);
+
+#if UNITY
+        static public float HalfTimeToLerpAlpha(float halfTime)
+        => HalfTimeToLerpAlpha(halfTime, Time.inFixedTimeStep ? Time.fixedDeltaTime : Time.deltaTime);
+#endif
 
         /// <summary> Swaps the reference of object t with a. </summary>
         static public void Swap<T>(ref T t, ref T a)
