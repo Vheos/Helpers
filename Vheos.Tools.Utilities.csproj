@@ -75,7 +75,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Tools\UnityCore\Package\Plugins\
+    <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Games\Core\Package\Plugins\
 
 if $(DefineConstants.Contains('UNITY'))==True (
   if $(DefineConstants.Contains('NOMODULES'))==False (
