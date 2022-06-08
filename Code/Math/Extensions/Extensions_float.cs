@@ -3,7 +3,7 @@
 static public class Extensions_float
 {
     // Constants
-    private const float DEG_TO_RAD = 0.017453f;
+    private const float DEG_TO_RAD = 0.0174532924f;
 
     // Binary
     /// <summary>Returns <c><paramref name="this"/> + <paramref name="a"/></c></summary>
