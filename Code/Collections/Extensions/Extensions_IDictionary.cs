@@ -15,7 +15,7 @@ static public class Extensions_IDictionary
         return false;
     }
     /// <summary> If this dictionary contains the key a and its value is non-null, assigns it to r and returns true. Otherwise, sets r to null and returns false. </summary>
-    static public bool TryGetNonNull<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey a, out TValue r) where TValue : class
+    static public bool TryGetNonNullValue<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey a, out TValue r) where TValue : class
     {
         if (@this.ContainsKey(a))
         {
@@ -26,7 +26,7 @@ static public class Extensions_IDictionary
         return false;
     }
     /// <summary> If this dictionary contains the key a and its value can be cast to r's type, does so and returns true. Otherwise, sets r to its default value and returns false. </summary>
-    static public bool TryGetAs<TKey, TValue, TValueAs>(this IDictionary<TKey, TValue> @this, TKey a, out TValueAs r)
+    static public bool TryGetValueAs<TKey, TValue, TValueAs>(this IDictionary<TKey, TValue> @this, TKey a, out TValueAs r)
         where TValue : class
         where TValueAs : class, TValue
     {

@@ -1,7 +1,7 @@
 ﻿#if UNITY
 namespace Vheos.Helpers.Common;
 
-static public class Coroutine
+static public class Coroutines
 {
 
     static public IEnumerator AfterUpdate(Action action)

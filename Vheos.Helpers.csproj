@@ -7,33 +7,34 @@
     <ProjectGuid>{96D2CDB1-5EE9-4666-812D-9ECB8DF005C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vheos.Tools.Utilities</RootNamespace>
-    <AssemblyName>Vheos.Tools.Utilities</AssemblyName>
+    <RootNamespace>Vheos.Helpers</RootNamespace>
+    <AssemblyName>Vheos.Helpers</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <LangVersion>10.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '-|AnyCPU' ">
     <OutputPath>bin\-\</OutputPath>
-    <DocumentationFile>bin\-\Vheos.Tools.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\-\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY|AnyCPU' ">
     <OutputPath>bin\UNITY\</OutputPath>
-    <DocumentationFile>bin\UNITY\Vheos.Tools.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\UNITY\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NET35\</OutputPath>
-    <DocumentationFile>bin\UNITY_NET35\Vheos.Tools.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\UNITY_NET35\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NET35</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NOMODULES_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NOMODULES_NET35\</OutputPath>
-    <DocumentationFile>bin\UNITY_NOMODULES_NET35\Vheos.Tools.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\UNITY_NOMODULES_NET35\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NOMODULES;NET35</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
@@ -60,6 +61,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Common\CustomDisposable.cs" />
+    <Compile Include="Code\KeyCodeCache\Extensions.cs" />
+    <Compile Include="Code\KeyCodeCache\KeyCodeCache.cs" />
     <Compile Include="Code\Dump\Enums\ScopeModifiers.cs" />
     <Compile Include="Code\Dump\Enums\AccessModifiers.cs" />
     <Compile Include="Code\Dump\Enums\ClassMembers.cs" />
@@ -83,13 +87,15 @@
     <Compile Include="Code\Math\Structs\Vector4Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector4Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector4.cs" />
+    <Compile Include="Code\RNG\Extensions.cs" />
+    <Compile Include="Code\RNG\RNG.cs" />
     <Compile Include="Code\Reflection\Extensions.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Camera.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Component.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_GameObject.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Sprite.cs" />
-    <Compile Include="Code\Common\Coroutine.cs" />
+    <Compile Include="Code\Common\Coroutines.cs" />
     <Compile Include="Code\Common\Utility.cs" />
   </ItemGroup>
   <ItemGroup />
