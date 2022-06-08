@@ -1,5 +1,5 @@
 ﻿#if UNITY
-namespace Vheos.Tools.Utilities
+namespace Vheos.Helpers.Common
 {
     using System;
     using System.Collections;

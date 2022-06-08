@@ -12,39 +12,29 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+    <LangVersion>10.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '-|AnyCPU' ">
     <OutputPath>bin\-\</OutputPath>
     <DocumentationFile>bin\-\Vheos.Tools.Utilities.xml</DocumentationFile>
     <DefineConstants>DEBUG</DefineConstants>
-    <LangVersion>9.0</LangVersion>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY|AnyCPU' ">
     <OutputPath>bin\UNITY\</OutputPath>
     <DocumentationFile>bin\UNITY\Vheos.Tools.Utilities.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY</DefineConstants>
-    <LangVersion>9.0</LangVersion>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NET35\</OutputPath>
     <DocumentationFile>bin\UNITY_NET35\Vheos.Tools.Utilities.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NET35</DefineConstants>
-    <LangVersion>9.0</LangVersion>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NOMODULES_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NOMODULES_NET35\</OutputPath>
     <DocumentationFile>bin\UNITY_NOMODULES_NET35\Vheos.Tools.Utilities.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NOMODULES;NET35</DefineConstants>
-    <LangVersion>9.0</LangVersion>
-    <Optimize>true</Optimize>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
@@ -70,9 +60,38 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\Coroutine.cs" />
-    <Compile Include="Code\Utility.cs" />
+    <Compile Include="Code\Dump\Enums\ScopeModifiers.cs" />
+    <Compile Include="Code\Dump\Enums\AccessModifiers.cs" />
+    <Compile Include="Code\Dump\Enums\ClassMembers.cs" />
+    <Compile Include="Code\Dump\Enums\MemberData.cs" />
+    <Compile Include="Code\Collections\Extensions\Extensions_ICollections.cs" />
+    <Compile Include="Code\Collections\Extensions\Extensions_IDictionary.cs" />
+    <Compile Include="Code\Collections\Extensions\Extensions_IEnumerable.cs" />
+    <Compile Include="Code\Collections\Extensions\Extensions_IList.cs" />
+    <Compile Include="Code\Dump\Extensions.cs" />
+    <Compile Include="Code\Common\Extensions.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_float.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_int.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Color.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Quaternion.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector2Int.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector2.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector3Int.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector3.cs" />
+    <Compile Include="Code\Math\Structs\Vector4Int.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector4Int.cs" />
+    <Compile Include="Code\Math\Extensions\Extensions_Vector4.cs" />
+    <Compile Include="Code\Reflection\Extensions.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions_Camera.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions_Component.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions_GameObject.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions_Sprite.cs" />
+    <Compile Include="Code\Common\Coroutine.cs" />
+    <Compile Include="Code\Common\Utility.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Games\Core\Package\Plugins\
