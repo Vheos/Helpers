@@ -33,7 +33,7 @@
         static public string[] GetEnumNames<T>() where T : Enum
         => Enum.GetNames(typeof(T));
 
-        /// <summary> Returns an array of all values defined in the given enum. </summary>
+        /// <summary> Returns string text parsed as enum of type T. </summary>
         static public T ParseEnum<T>(string text) where T : Enum
         => (T)Enum.Parse(typeof(T), text);
 
