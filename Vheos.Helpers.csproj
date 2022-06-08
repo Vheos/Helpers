@@ -91,11 +91,11 @@
     <Compile Include="Code\RNG\RNG.cs" />
     <Compile Include="Code\Reflection\Extensions.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Camera.cs" />
+    <Compile Include="Code\UnityObjects\Extensions\Extensions_MonoBehaviour.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Component.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_GameObject.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions.cs" />
     <Compile Include="Code\UnityObjects\Extensions\Extensions_Sprite.cs" />
-    <Compile Include="Code\Common\Coroutines.cs" />
     <Compile Include="Code\Common\Utility.cs" />
   </ItemGroup>
   <ItemGroup />
