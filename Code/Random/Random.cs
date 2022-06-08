@@ -1,7 +1,6 @@
 ﻿namespace Vheos.Tools.Random
 {
-    using System;
-    using Vheos.Helpers.Math;
+        using Vheos.Helpers.Math;
     using SystemRandom = System.Random;
 
     static public class Random

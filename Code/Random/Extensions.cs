@@ -1,7 +1,6 @@
 ﻿namespace Vheos.Tools.RandomN
 {
-    using System.Collections.Generic;
-    static public class Random_Extensions
+        static public class Random_Extensions
     {
         /// <summary> Returns a random element from this list. </summary>
         static public T Random<T>(this IList<T> t)

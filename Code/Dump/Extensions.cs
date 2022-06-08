@@ -1,104 +1,104 @@
-﻿namespace Vheos.Helpers.Dump
+﻿namespace Vheos.Helpers.Dump;
+using System.Text;
+using System.Reflection;
+
+static public class Extensions
 {
-    using System;
-    using System.Text;
-    using System.Reflection;
-    using System.Linq;
-
-    static public class Extensions
+    /// <summary> Returns a string of tab-separated data of all members of this object. </summary>
+    static public string Dump
+    (
+        this object @this,
+        Type type = null,
+        string[] blacklist = null,
+        MemberData data = MemberData.Values,
+        ClassMembers members = ClassMembers.FieldsAndProperties,
+        ScopeModifiers scopeModifiers = ScopeModifiers.Instance,
+        AccessModifiers accessModifiers = AccessModifiers.All
+    )
     {
-        /// <summary> Returns a string of tab-separated data of all members of this object. </summary>
-        static public string Dump
-        (
-            this object @this,
-            Type type = null,
-            string[] blacklist = null,
-            MemberData data = MemberData.Values,
-            ClassMembers members = ClassMembers.FieldsAndProperties,
-            ScopeModifiers scopeModifiers = ScopeModifiers.Instance,
-            AccessModifiers accessModifiers = AccessModifiers.All
-        )
-        {
-            // Cache
-            if (type == null)
-                type = @this.GetType();
-            BindingFlags bindingFlags = accessModifiers.ToBindingFlags() | scopeModifiers.ToBindingFlags();
-            StringBuilder builder = new();
+        // Cache
+        if (type == null)
+            type = @this.GetType();
+        BindingFlags bindingFlags = accessModifiers.ToBindingFlags() | scopeModifiers.ToBindingFlags();
+        StringBuilder builder = new();
 
-            // Fields
-            if (members.HasFlag(ClassMembers.Fields))
-                foreach (var fieldInfo in type.GetFields(bindingFlags))
+        // Fields
+        if (members.HasFlag(ClassMembers.Fields))
+            foreach (var fieldInfo in type.GetFields(bindingFlags))
+            {
+                if (blacklist != null && blacklist.Contains(fieldInfo.Name))
+                    continue;
+
+                if (data.HasFlag(MemberData.Names))
+                    builder.Append(fieldInfo.Name).Append("\t");
+                if (data.HasFlag(MemberData.Types))
+                    builder.Append(fieldInfo.FieldType.Name).Append("\t");
+                if (data.HasFlag(MemberData.Values))
                 {
-                    if (blacklist != null && blacklist.Contains(fieldInfo.Name))
-                        continue;
-
-                    if (data.HasFlag(MemberData.Names))
-                        builder.Append(fieldInfo.Name).Append("\t");
-                    if (data.HasFlag(MemberData.Types))
-                        builder.Append(fieldInfo.FieldType.Name).Append("\t");
-                    if (data.HasFlag(MemberData.Values))
-                    {
-                        object value = fieldInfo.GetValue(@this);
-                        builder.Append(value != null ? value.ToString() : "null").Append("\t");
-                    }
+                    object value = fieldInfo.GetValue(@this);
+                    builder.Append(value != null ? value.ToString() : "null").Append("\t");
                 }
+            }
 
-            // Properties
-            if (members.HasFlag(ClassMembers.Properties))
-                foreach (var propInfo in type.GetProperties(bindingFlags))
+        // Properties
+        if (members.HasFlag(ClassMembers.Properties))
+            foreach (var propInfo in type.GetProperties(bindingFlags))
+            {
+                if (blacklist != null && blacklist.Contains(propInfo.Name))
+                    continue;
+
+                if (data.HasFlag(MemberData.Names))
+                    builder.Append(propInfo.Name).Append("\t");
+                if (data.HasFlag(MemberData.Types))
+                    builder.Append(propInfo.PropertyType.Name).Append("\t");
+                if (data.HasFlag(MemberData.Values))
                 {
-                    if (blacklist != null && blacklist.Contains(propInfo.Name))
-                        continue;
-
-                    if (data.HasFlag(MemberData.Names))
-                        builder.Append(propInfo.Name).Append("\t");
-                    if (data.HasFlag(MemberData.Types))
-                        builder.Append(propInfo.PropertyType.Name).Append("\t");
-                    if (data.HasFlag(MemberData.Values))
+                    object value;
+                    try
                     {
-                        object value;
-                        try
-                        { value = propInfo.GetValue(@this, null); }
-                        catch
-                        { value = "[EXCEPTION]"; }
-                        builder.Append(value != null ? value.ToString() : "null").Append("\t");
+                        value = propInfo.GetValue(@this, null);
                     }
+                    catch
+                    {
+                        value = "[EXCEPTION]";
+                    }
+                    builder.Append(value != null ? value.ToString() : "null").Append("\t");
                 }
+            }
 
-            // Return
-            return builder.ToString();
-        }
+        // Return
+        return builder.ToString();
+    }
 
-        /// <summary> Returns a string of tab-separated data of all members of this type. </summary>
-        static public string Dump
-        (
-            this Type @this,
-            string[] blacklist = null,
-            MemberData data = MemberData.Names,
-            ClassMembers members = ClassMembers.FieldsAndProperties,
-            ScopeModifiers scopeModifiers = ScopeModifiers.Instance,
-            AccessModifiers accessModifiers = AccessModifiers.All
-        )
-        => Dump(null, @this, blacklist, data, members, scopeModifiers, accessModifiers);
+    /// <summary> Returns a string of tab-separated data of all members of this type. </summary>
+    static public string Dump
+    (
+        this Type @this,
+        string[] blacklist = null,
+        MemberData data = MemberData.Names,
+        ClassMembers members = ClassMembers.FieldsAndProperties,
+        ScopeModifiers scopeModifiers = ScopeModifiers.Instance,
+        AccessModifiers accessModifiers = AccessModifiers.All
+    )
+    => Dump(null, @this, blacklist, data, members, scopeModifiers, accessModifiers);
 
-        static public BindingFlags ToBindingFlags(this AccessModifiers @this)
-        {
-            BindingFlags flags = 0;
-            if (@this.HasFlag(AccessModifiers.Private))
-                flags |= BindingFlags.NonPublic;
-            if (@this.HasFlag(AccessModifiers.Public))
-                flags |= BindingFlags.Public;
-            return flags;
-        }
+    static public BindingFlags ToBindingFlags(this AccessModifiers @this)
+    {
+        BindingFlags flags = 0;
+        if (@this.HasFlag(AccessModifiers.Private))
+            flags |= BindingFlags.NonPublic;
+        if (@this.HasFlag(AccessModifiers.Public))
+            flags |= BindingFlags.Public;
+        return flags;
+    }
 
-        static public BindingFlags ToBindingFlags(this ScopeModifiers @this)
-        {
-            BindingFlags flags = 0;
-            if (@this.HasFlag(ScopeModifiers.Instance))
-                flags |= BindingFlags.Instance;
-            if (@this.HasFlag(ScopeModifiers.Static))
-                flags |= BindingFlags.Static;
-            return flags;
-        }
+    static public BindingFlags ToBindingFlags(this ScopeModifiers @this)
+    {
+        BindingFlags flags = 0;
+        if (@this.HasFlag(ScopeModifiers.Instance))
+            flags |= BindingFlags.Instance;
+        if (@this.HasFlag(ScopeModifiers.Static))
+            flags |= BindingFlags.Static;
+        return flags;
     }
 }

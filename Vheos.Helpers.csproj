@@ -70,6 +70,7 @@
     <Compile Include="Code\Collections\Extensions\Extensions_IList.cs" />
     <Compile Include="Code\Dump\Extensions.cs" />
     <Compile Include="Code\Common\Extensions.cs" />
+    <Compile Include="Code\GlobalUsings.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_float.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Color.cs" />
