@@ -176,17 +176,4 @@ static public class Extensions
     }
     #endregion
 #endif
-
-#if UNITY
-    // Random roll
-    /// <summary> Returns true with @this probability. </summary>
-    static public bool Roll(this float @this)
-    => UnityEngine.Random.value < @this || @this == 1f;
-    /// <summary> Returns true with @this% probability. </summary>
-    static public bool RollPercent(this float @this)
-    => UnityEngine.Random.value < @this / 100f || @this == 100f;
-    /// <summary> Returns true with @this% probability. </summary>
-    static public bool RollPercent(this int @this)
-    => UnityEngine.Random.value < @this / 100f || @this == 100f;
-#endif
 }

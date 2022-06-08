@@ -1,5 +1,7 @@
 ﻿namespace Vheos.Helpers.RNG;
 
+using Vheos.Helpers.Math;
+
 static public class Random_Extensions
 {
     /// <summary> Returns a random element from this list. </summary>
@@ -15,4 +17,16 @@ static public class Random_Extensions
             (t[j], t[i]) = (t[i], t[j]);
         }
     }
+
+    /// <summary> Returns true with @this probability. </summary>
+    static public bool Roll(this float @this)
+    => RNG.Value01 < @this || @this == 1f;
+
+    /// <summary> Returns true with @this% probability. </summary>
+    static public bool RollPercent(this float @this)
+    => RNG.Value01 < @this / 100f || @this == 100f;
+
+    /// <summary> Returns true with @this% probability. </summary>
+    static public bool RollPercent(this int @this)
+    => RNG.Value01 < @this / 100f || @this == 100f;
 }
