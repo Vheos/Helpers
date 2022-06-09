@@ -2,16 +2,19 @@
 
 static public class KeyCodeCache
 {
-    // Privates
-    static private Dictionary<string, KeyCode> _keyCodesByName;
-
     // Publics
-    static public void Initialize()
+    static public IReadOnlyDictionary<string, KeyCode> KeyCodesByName
+        => _keyCodesByName;
+
+    // Privates
+    private static readonly Dictionary<string, KeyCode> _keyCodesByName;
+
+    // Initializers
+    static KeyCodeCache()
     {
-        _keyCodesByName = new Dictionary<string, KeyCode>();
+        _keyCodesByName = new(StringComparer.OrdinalIgnoreCase);
         foreach (var keyCodeName in Utility.GetEnumNames<KeyCode>())
             _keyCodesByName.Add(keyCodeName, Utility.ParseEnum<KeyCode>(keyCodeName));
     }
-    static public IReadOnlyDictionary<string, KeyCode> KeyCodesByName
-    => _keyCodesByName;
+
 }
