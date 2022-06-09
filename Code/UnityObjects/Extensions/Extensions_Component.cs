@@ -13,10 +13,10 @@ static public class Extensions_Component
     => t.gameObject.activeSelf;
     static public bool IsActiveInHierarchy(this Component t)
     => t.gameObject.activeInHierarchy;
-    static public void Enable(this MonoBehaviour t)
-    => t.enabled = true;
-    static public void Disable(this MonoBehaviour t)
-    => t.enabled = false;
+    static public void ToggleActive(this Component t)
+    => t.gameObject.ToggleActive();
+    static public void SetActive(this Component t, bool state)
+    => t.gameObject.SetActive(state);
 
     #region HIERARCHY SETTERS
     /// <summary> Places this object at the root of the hierarchy. </summary>
