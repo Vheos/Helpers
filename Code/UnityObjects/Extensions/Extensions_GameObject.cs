@@ -14,6 +14,8 @@ static public class Extensions_GameObject
     => t.activeSelf;
     static public bool IsActiveInHierarchy(this GameObject t)
     => t.activeInHierarchy;
+    static public void ToggleActive(this GameObject t)
+    => t.SetActive(!t.activeSelf);
 
     #region HIERARCHY SETTERS
     /// <summary> Places this object at the root of the hierarchy </summary>
