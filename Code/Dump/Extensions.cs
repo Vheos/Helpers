@@ -1,11 +1,11 @@
 ﻿namespace Vheos.Helpers.Dump;
-using System.Text;
 using System.Reflection;
+using System.Text;
 
-static public class Extensions
+public static class Extensions
 {
     /// <summary> Returns a string of tab-separated data of all members of this object. </summary>
-    static public string Dump
+    public static string Dump
     (
         this object @this,
         Type type = null,
@@ -71,7 +71,7 @@ static public class Extensions
     }
 
     /// <summary> Returns a string of tab-separated data of all members of this type. </summary>
-    static public string Dump
+    public static string Dump
     (
         this Type @this,
         string[] blacklist = null,
@@ -82,7 +82,7 @@ static public class Extensions
     )
     => Dump(null, @this, blacklist, data, members, scopeModifiers, accessModifiers);
 
-    static public BindingFlags ToBindingFlags(this AccessModifiers @this)
+    public static BindingFlags ToBindingFlags(this AccessModifiers @this)
     {
         BindingFlags flags = 0;
         if (@this.HasFlag(AccessModifiers.Private))
@@ -92,7 +92,7 @@ static public class Extensions
         return flags;
     }
 
-    static public BindingFlags ToBindingFlags(this ScopeModifiers @this)
+    public static BindingFlags ToBindingFlags(this ScopeModifiers @this)
     {
         BindingFlags flags = 0;
         if (@this.HasFlag(ScopeModifiers.Instance))

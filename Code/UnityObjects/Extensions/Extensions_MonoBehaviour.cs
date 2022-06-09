@@ -1,12 +1,12 @@
 ﻿#if UNITY
 namespace Vheos.Helpers.UnityObjects;
 
-static public class Extensions_MonoBehaviour
+public static class Extensions_MonoBehaviour
 {
     // Various
-    static public void Enable(this MonoBehaviour t)
+    public static void Enable(this MonoBehaviour t)
     => t.enabled = true;
-    static public void Disable(this MonoBehaviour t)
+    public static void Disable(this MonoBehaviour t)
     => t.enabled = false;
 
     // Coroutines
@@ -32,37 +32,37 @@ static public class Extensions_MonoBehaviour
         => @this.StartCoroutine(UntilNot(test, action, finalAction));
 
     // Privates
-    static private IEnumerator AfterUpdate(Action action)
+    private static IEnumerator AfterUpdate(Action action)
     {
         yield return new WaitForEndOfFrame();
         action();
     }
-    static private IEnumerator AfterFixedUpdate(Action action)
+    private static IEnumerator AfterFixedUpdate(Action action)
     {
         yield return new WaitForFixedUpdate();
         action();
     }
-    static private IEnumerator AfterCurrentUpdate(Action action)
+    private static IEnumerator AfterCurrentUpdate(Action action)
     {
         yield return Time.inFixedTimeStep ? new WaitForFixedUpdate() : new WaitForEndOfFrame();
         action();
     }
-    static private IEnumerator AfterSeconds(float delay, Action action)
+    private static IEnumerator AfterSeconds(float delay, Action action)
     {
         yield return new WaitForSeconds(delay);
         action();
     }
-    static private IEnumerator AfterRealSeconds(float delay, Action action)
+    private static IEnumerator AfterRealSeconds(float delay, Action action)
     {
         yield return new WaitForSecondsRealtime(delay);
         action();
     }
-    static private IEnumerator AfterCheck(Func<bool> check, Action action)
+    private static IEnumerator AfterCheck(Func<bool> check, Action action)
     {
         yield return new WaitUntil(check);
         action();
     }
-    static private IEnumerator While(Func<bool> test, Action action, Action finalAction = null)
+    private static IEnumerator While(Func<bool> test, Action action, Action finalAction = null)
     {
         while (test())
         {
@@ -71,7 +71,7 @@ static public class Extensions_MonoBehaviour
         }
         finalAction?.Invoke();
     }
-    static private IEnumerator WhileNot(Func<bool> test, Action action, Action finalAction = null)
+    private static IEnumerator WhileNot(Func<bool> test, Action action, Action finalAction = null)
     {
         while (!test())
         {
@@ -80,7 +80,7 @@ static public class Extensions_MonoBehaviour
         }
         finalAction?.Invoke();
     }
-    static private IEnumerator Until(Func<bool> test, Action action, Action finalAction = null)
+    private static IEnumerator Until(Func<bool> test, Action action, Action finalAction = null)
     {
         do
         {
@@ -90,7 +90,7 @@ static public class Extensions_MonoBehaviour
         while (!test());
         finalAction?.Invoke();
     }
-    static private IEnumerator UntilNot(Func<bool> test, Action action, Action finalAction = null)
+    private static IEnumerator UntilNot(Func<bool> test, Action action, Action finalAction = null)
     {
         do
         {

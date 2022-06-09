@@ -1,9 +1,9 @@
 ﻿namespace Vheos.Helpers.KeyCodeCache;
 
-static public class KeyCodeCache
+public static class KeyCodeCache
 {
     // Publics
-    static public IReadOnlyDictionary<string, KeyCode> KeyCodesByName
+    public static IReadOnlyDictionary<string, KeyCode> KeyCodesByName
         => _keyCodesByName;
 
     // Privates
@@ -16,5 +16,4 @@ static public class KeyCodeCache
         foreach (var keyCodeName in Utility.GetEnumNames<KeyCode>())
             _keyCodesByName.Add(keyCodeName, Utility.ParseEnum<KeyCode>(keyCodeName));
     }
-
 }

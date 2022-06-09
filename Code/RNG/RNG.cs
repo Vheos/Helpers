@@ -1,30 +1,30 @@
 ﻿namespace Vheos.Helpers.RNG;
 using Vheos.Helpers.Math;
 
-static public class RNG
+public static class RNG
 {
     // Publics
-    static public int Seed { get; private set; }
-    static public float Value01
+    public static int Seed { get; private set; }
+    public static float Value01
         => (float)_randomizer.NextDouble();
-    static public float Degree
+    public static float Degree
         => Value01 * 360f;
-    static public float Radian
+    public static float Radian
         => Value01 * 2 * (float)System.Math.PI;
 
-    static public float Range(float toEx)
+    public static float Range(float toEx)
         => Value01 * toEx;
-    static public float Range(float fromIn, float toEx)
+    public static float Range(float fromIn, float toEx)
         => Value01.MapFrom01(fromIn, toEx);
 
-    static public int Range(int toEx)
+    public static int Range(int toEx)
         => _randomizer.Next(toEx);
-    static public int Range(int fromIn, int toEx)
+    public static int Range(int fromIn, int toEx)
         => _randomizer.Next(fromIn, toEx);
 
-    static public int RangeInclusive(int toIn)
+    public static int RangeInclusive(int toIn)
         => _randomizer.Next(toIn + 1);
-    static public int RangeInclusive(int fromIn, int toIn)
+    public static int RangeInclusive(int fromIn, int toIn)
         => _randomizer.Next(fromIn, toIn + 1);
 
 #if UNITY
@@ -53,7 +53,7 @@ static public class RNG
 #endif
 
     // Privates
-    static private System.Random _randomizer;
+    private static System.Random _randomizer;
 
     // Initializers
     static RNG()
@@ -61,7 +61,7 @@ static public class RNG
         Initialize((int)DateTime.Now.Ticks);
     }
 
-    static public void Initialize(int seed)
+    public static void Initialize(int seed)
     {
         Seed = seed;
         _randomizer = new System.Random(Seed);
