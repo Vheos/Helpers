@@ -1,5 +1,6 @@
 ﻿namespace Vheos.Helpers.Common;
 
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 static public class Extensions
@@ -97,21 +98,24 @@ static public class Extensions
             if (@this.HasFlag(flag))
                 a(flag);
     }
+
+    public static float ToFloat(this string text)
+        => float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out float value) ? value : float.NaN;
+    public static int ToInt(this string text)
+        => int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture, out int value) ? value : int.MinValue;
+
     /// <summary> Checks if this string is null or empty (""). </summary>
-    static public bool IsNullOrEmpty(this string @this)
+    static public bool IsEmpty(this string @this)
     => string.IsNullOrEmpty(@this);
     /// <summary> Checks if this string is not null or empty (""). </summary>
-    static public bool IsNotNullOrEmpty(this string @this)
-    => !string.IsNullOrEmpty(@this);
-    /// <summary> Checks if this string contains any characters. </summary>
-    static public bool Any(this string @this)
+    static public bool IsNotEmpty(this string @this)
     => !string.IsNullOrEmpty(@this);
     /// <summary> Returns this string with spaces inserted between camel-case words. </summary>
     static public string SplitCamelCase(this string @this)
     => Regex.Replace(@this, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
     /// <summary> Formats this value using culture-independen format a. </summary>
     static public string ToInvariant(this IFormattable @this, string a = null)
-    => @this.ToString(a, System.Globalization.CultureInfo.InvariantCulture);
+    => @this.ToString(a, CultureInfo.InvariantCulture);
     /// <summary> If test a evaluates to true, returns a. Otherwise, returns b. </summary>
     static public T ChooseIf<T>(this T @this, Func<T, bool> a, T b = default)
     => a(@this) ? @this : b;
