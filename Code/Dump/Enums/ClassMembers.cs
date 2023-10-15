@@ -4,9 +4,9 @@
 public enum ClassMembers
 {
     None = 0,
-    Fields = 1 << 1,
-    Properties = 1 << 2,
-    Methods = 1 << 3,
+    Fields = 1 << 0,
+    Properties = 1 << 1,
+    Methods = 1 << 0,
     FieldsAndProperties = Fields | Properties,
     FieldsAndMethods = Fields | Methods,
     PropertiesAndMethods = Properties | Methods,
