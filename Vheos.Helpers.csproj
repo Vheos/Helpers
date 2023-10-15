@@ -21,22 +21,25 @@
     <OutputPath>bin\-\</OutputPath>
     <DocumentationFile>bin\-\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG</DefineConstants>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY|AnyCPU' ">
-    <OutputPath>bin\UNITY\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>bin\Release\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY</DefineConstants>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NET35\</OutputPath>
     <DocumentationFile>bin\UNITY_NET35\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NET35</DefineConstants>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UNITY_NOMODULES_NET35|AnyCPU' ">
     <OutputPath>bin\UNITY_NOMODULES_NET35\</OutputPath>
     <DocumentationFile>bin\UNITY_NOMODULES_NET35\Vheos.Helpers.xml</DocumentationFile>
     <DefineConstants>DEBUG;UNITY;NOMODULES;NET35</DefineConstants>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
@@ -86,11 +89,15 @@
     <Compile Include="Code\Math\Extensions\Extensions_Quaternion.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector2Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector2.cs" />
+    <Compile Include="Code\NewMath\Extensions_float3.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector3Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector3.cs" />
     <Compile Include="Code\Math\Structs\Vector4Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector4Int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Vector4.cs" />
+    <Compile Include="Code\NewMath\Extensions_float.cs" />
+    <Compile Include="Code\NewMath\Extensions_int.cs" />
+    <Compile Include="Code\NewMath\GlobalUsings.cs" />
     <Compile Include="Code\RNG\Extensions.cs" />
     <Compile Include="Code\RNG\RNG.cs" />
     <Compile Include="Code\Reflection\Extensions.cs" />
