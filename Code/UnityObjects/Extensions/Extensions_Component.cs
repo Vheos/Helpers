@@ -1,6 +1,6 @@
-﻿using UnityEngine.SceneManagement;
+﻿#if UNITY
+using UnityEngine.SceneManagement;
 
-#if UNITY
 namespace Vheos.Helpers.UnityObjects;
 public static class Extensions_Component
 {

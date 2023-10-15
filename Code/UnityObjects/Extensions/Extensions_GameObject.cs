@@ -1,7 +1,7 @@
-﻿using UnityEngine.SceneManagement;
+﻿#if UNITY
+using UnityEngine.SceneManagement;
 using Vheos.Helpers.Math;
 
-#if UNITY
 namespace Vheos.Helpers.UnityObjects;
 public static class Extensions_GameObject
 {
