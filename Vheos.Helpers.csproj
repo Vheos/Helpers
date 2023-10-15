@@ -38,6 +38,7 @@
     <DefineConstants>DEBUG;UNITY;NOMODULES;NET35</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System.Core" />
     <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('UNITY')) AND !$(DefineConstants.Contains('NOMODULES'))">
       <HintPath>..\..\Libraries\v2021.2.8f1\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -61,6 +62,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Collections\Bictionary.cs" />
     <Compile Include="Code\Common\CustomDisposable.cs" />
     <Compile Include="Code\KeyCodeCache\Extensions.cs" />
     <Compile Include="Code\KeyCodeCache\KeyCodeCache.cs" />
@@ -68,13 +70,14 @@
     <Compile Include="Code\Dump\Enums\AccessModifiers.cs" />
     <Compile Include="Code\Dump\Enums\ClassMembers.cs" />
     <Compile Include="Code\Dump\Enums\MemberData.cs" />
-    <Compile Include="Code\Collections\Extensions\Extensions_ICollections.cs" />
+    <Compile Include="Code\Collections\Extensions\Extensions_ICollection.cs" />
     <Compile Include="Code\Collections\Extensions\Extensions_IDictionary.cs" />
     <Compile Include="Code\Collections\Extensions\Extensions_IEnumerable.cs" />
     <Compile Include="Code\Collections\Extensions\Extensions_IList.cs" />
     <Compile Include="Code\Dump\Extensions.cs" />
     <Compile Include="Code\Common\Extensions.cs" />
     <Compile Include="Code\GlobalUsings.cs" />
+    <Compile Include="Code\Math\Enums\Axis.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_float.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_int.cs" />
     <Compile Include="Code\Math\Extensions\Extensions_Color.cs" />
@@ -101,13 +104,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set UnityCorePlugins_Global=E:\Creativity\Programs\C#\Games\Core\Package\Plugins\
-
-if $(DefineConstants.Contains('UNITY'))==True (
-  if $(DefineConstants.Contains('NOMODULES'))==False (
-    xcopy /y $(TargetDir)$(TargetName).dll %25UnityCorePlugins_Global%25
-    xcopy /y $(TargetDir)$(TargetName).xml %25UnityCorePlugins_Global%25
-  )
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
