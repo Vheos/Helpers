@@ -1,4 +1,5 @@
-﻿namespace Vheos.Helpers.KeyCodeCache;
+﻿#if UNITY
+namespace Vheos.Helpers.KeyCodeCache;
 
 public static class Extensions
 {
@@ -7,3 +8,4 @@ public static class Extensions
     public static KeyCode ToKeyCode(this string t)
         => KeyCodeCache.KeyCodesByName.TryGetValue(t, out var keyCode) ? keyCode : KeyCode.None;
 }
+#endif

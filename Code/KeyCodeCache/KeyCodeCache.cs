@@ -1,4 +1,5 @@
-﻿namespace Vheos.Helpers.KeyCodeCache;
+﻿#if UNITY
+namespace Vheos.Helpers.KeyCodeCache;
 
 public static class KeyCodeCache
 {
@@ -17,3 +18,4 @@ public static class KeyCodeCache
             _keyCodesByName.Add(keyCodeName, Utility.ParseEnum<KeyCode>(keyCodeName));
     }
 }
+#endif
