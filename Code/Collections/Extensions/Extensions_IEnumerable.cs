@@ -15,6 +15,18 @@ public static class Extensions_IEnumerable
         r = default;
         return false;
     }
+    public static bool TryGetFirst<T>(this IEnumerable<T> @this, out T r, Func<T, bool> test)
+    {
+        foreach (var element in @this)
+            if (test(element))
+            {
+                r = element;
+                return true;
+            }
+
+        r = default;
+        return false;
+    }
     #endregion
 
     #region EMPTY
