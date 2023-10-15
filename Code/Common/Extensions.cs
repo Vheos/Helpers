@@ -105,10 +105,10 @@ public static class Extensions
         => int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture, out int value) ? value : int.MinValue;
 
     /// <summary> Checks if this string is null or empty (""). </summary>
-    public static bool IsEmpty(this string @this)
+    public static bool IsNullOrEmpty(this string @this)
     => string.IsNullOrEmpty(@this);
     /// <summary> Checks if this string is not null or empty (""). </summary>
-    public static bool IsNotEmpty(this string @this)
+    public static bool IsNotNullOrEmpty(this string @this)
     => !string.IsNullOrEmpty(@this);
     /// <summary> Returns this string with spaces inserted between camel-case words. </summary>
     public static string SplitCamelCase(this string @this)
