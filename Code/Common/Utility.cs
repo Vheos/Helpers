@@ -16,7 +16,7 @@ public static class Utility
 
     /// <summary> Returns an array of all values defined in the given enum. </summary>
     public static T[] GetEnumValues<T>() where T : Enum
-    => (T[])Enum.GetValues(typeof(T));
+		=> (T[])Enum.GetValues(typeof(T));
 
     /// <summary> Returns an enumerable of all values defined in the given enum as strings. </summary>
     public static IEnumerable<string> GetEnumValuesAsStrings<T>() where T : Enum
@@ -27,11 +27,11 @@ public static class Utility
 
     /// <summary> Returns an array of all values defined in the given enum. </summary>
     public static string[] GetEnumNames<T>() where T : Enum
-    => Enum.GetNames(typeof(T));
+		=> Enum.GetNames(typeof(T));
 
     /// <summary> Returns string text parsed as enum of type T. </summary>
     public static T ParseEnum<T>(string text) where T : Enum
-    => (T)Enum.Parse(typeof(T), text);
+		=> (T)Enum.Parse(typeof(T), text);
 
     /// <summary> Returns an intersection of all chosen enumerables. </summary>
     public static List<T> Intersect<T>(IEnumerable<IEnumerable<T>> t)
@@ -47,7 +47,7 @@ public static class Utility
 
     /// <summary> Returns a method that's n stack frames above the method you're currently in. </summary>
     public static MethodBase GetStackMethod(int frame = 2)
-    => new StackFrame(frame).GetMethod();
+		=> new StackFrame(frame).GetMethod();
 
     /// <summary> Returns a formatted list of all methods on the stack. </summary>
     public static string GetFormattedStack(int skipFrames = 1)
@@ -83,11 +83,11 @@ public static class Utility
     }
 
     public static float HalfTimeToLerpAlpha(float halfTime, float deltaTime)
-    => halfTime == 0f ? 1f : 1f - (float)System.Math.Pow(0.5f, deltaTime / halfTime);
+		=> halfTime == 0f ? 1f : 1f - (float)System.Math.Pow(0.5f, deltaTime / halfTime);
 
 #if UNITY
     public static float HalfTimeToLerpAlpha(float halfTime)
-    => HalfTimeToLerpAlpha(halfTime, Time.inFixedTimeStep ? Time.fixedDeltaTime : Time.deltaTime);
+		=> HalfTimeToLerpAlpha(halfTime, Time.inFixedTimeStep ? Time.fixedDeltaTime : Time.deltaTime);
 #endif
 
     /// <summary> Swaps the reference of object t with a. </summary>
@@ -97,6 +97,6 @@ public static class Utility
 #if NET35
     /// <summary> Returns an intersection of all chosen lists. </summary>
     static public List<T> Intersect<T>(IEnumerable<List<T>> t)
-    => Intersect((IEnumerable<IEnumerable<T>>)t);
+		=> Intersect((IEnumerable<IEnumerable<T>>)t);
 #endif
 }

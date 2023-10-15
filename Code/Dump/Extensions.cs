@@ -81,7 +81,7 @@ public static class Extensions
         ScopeModifiers scopeModifiers = ScopeModifiers.Instance,
         AccessModifiers accessModifiers = AccessModifiers.All
     )
-    => Dump(null, @this, blacklist, data, members, scopeModifiers, accessModifiers);
+		=> Dump(null, @this, blacklist, data, members, scopeModifiers, accessModifiers);
 
     public static BindingFlags ToBindingFlags(this AccessModifiers @this)
     {

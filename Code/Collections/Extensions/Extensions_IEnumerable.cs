@@ -46,9 +46,9 @@ public static class Extensions_IEnumerable
     }
     /// <summary> Tests whether this collection contains zero element. </summary>
     public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this)
-    => @this == null || @this.IsEmpty();
+		=> @this == null || @this.IsEmpty();
     /// <summary> Tests whether this collection contains any elements. </summary>
     public static bool IsNotNullOrEmpty<T>(this IEnumerable<T> @this)
-    => @this != null && @this.IsNotEmpty();
+		=> @this != null && @this.IsNotEmpty();
     #endregion
 }

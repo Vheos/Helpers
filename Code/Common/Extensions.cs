@@ -7,20 +7,20 @@ public static class Extensions
     #region TYPES
     /// <summary> Casts this value to type T. If it can'@this be cast, returns null.  </summary>
     public static T As<T>(this object @this) where T : class
-    => @this as T;
+		=> @this as T;
     /// <summary> Casts this value to type T. If it can'@this be cast, throws an InvalidCastException.  </summary>
     public static T Cast<T>(this ValueType @this) where T : struct
-    => (T)@this;
+		=> (T)@this;
     /// <summary> Casts this value to type T. If it can'@this be cast, throws an InvalidCastException.  </summary>
     public static T Cast<T>(this object @this)
-    => (T)@this;
+		=> (T)@this;
 
     /// <summary> Checks if this type can be assigned to type T. </summary>
     public static bool IsAssignableTo<T>(this Type @this)
-    => typeof(T).IsAssignableFrom(@this);
+		=> typeof(T).IsAssignableFrom(@this);
     /// <summary> Returns true if this type can'@this be assigned to type T. </summary>
     public static bool IsNotAssignableTo<T>(this Type @this)
-    => !typeof(T).IsAssignableFrom(@this);
+		=> !typeof(T).IsAssignableFrom(@this);
     #endregion
 
     #region TRY OUT
@@ -81,15 +81,15 @@ public static class Extensions
     #region IS CONTAINED
     /// <summary> Tests whether this object is contained within the collection a. </summary>
     public static bool IsContainedIn<T>(this T @this, ICollection<T> a)
-    => a.Contains(@this);
+		=> a.Contains(@this);
     /// <summary> Tests whether this object is not contained within the collection a. </summary>
     public static bool IsNotContainedIn<T>(this T @this, ICollection<T> a)
-    => !a.Contains(@this);
+		=> !a.Contains(@this);
     #endregion
 
     /// <summary> Checks if this enum uses the [Flags] attributes. </summary>
     public static bool HasFlagsAttribute(this Enum @this)
-    => @this.GetType().IsDefined(typeof(FlagsAttribute), false);
+		=> @this.GetType().IsDefined(typeof(FlagsAttribute), false);
     /// <summary> Calls action a for each flag set in this enum. </summary>
     public static void ForEachSetFlag<T>(this T @this, Action<T> a) where T : Enum
     {
@@ -105,24 +105,24 @@ public static class Extensions
 
     /// <summary> Checks if this string is null or empty (""). </summary>
     public static bool IsNullOrEmpty(this string @this)
-    => string.IsNullOrEmpty(@this);
+		=> string.IsNullOrEmpty(@this);
     /// <summary> Checks if this string is not null or empty (""). </summary>
     public static bool IsNotNullOrEmpty(this string @this)
-    => !string.IsNullOrEmpty(@this);
+		=> !string.IsNullOrEmpty(@this);
     /// <summary> Returns this string with spaces inserted between camel-case words. </summary>
     public static string SplitCamelCase(this string @this)
-    => Regex.Replace(@this, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
+		=> Regex.Replace(@this, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
     /// <summary> Formats this value using culture-independen format a. </summary>
     public static string ToInvariant(this IFormattable @this, string a = null)
-    => @this.ToString(a, CultureInfo.InvariantCulture);
+		=> @this.ToString(a, CultureInfo.InvariantCulture);
     /// <summary> If test a evaluates to true, returns a. Otherwise, returns b. </summary>
     public static T ChooseIf<T>(this T @this, Func<T, bool> a, T b = default)
-    => a(@this) ? @this : b;
+		=> a(@this) ? @this : b;
     /// <summary> If this object is non-null, returns a. Otherwise, returns b. </summary>
     public static T ChooseIfNonNull<T>(this T @this, T b = default)
-    => @this != null ? @this : b;
+		=> @this != null ? @this : b;
     public static T EmptyIfNull<T>(this T @this) where T : ICollection, new()
-    => @this ?? new();
+		=> @this ?? new();
 
     /// <summary> Returns this bool, then inverts it </summary>
     public static bool Toggle(this ref bool @this)
@@ -141,13 +141,13 @@ public static class Extensions
     }
     /// <summary> Returns 0 for false and 1 for true. </summary>
     public static int To01(this bool @this)
-    => @this ? 1 : 0;
+		=> @this ? 1 : 0;
     /// <summary> Returns -1 for false and +1 for true. </summary>
     public static int ToSign(this bool @this)
-    => @this ? +1 : -1;
+		=> @this ? +1 : -1;
     /// <summary> Returns a for true and b for false. </summary>
     public static T Map<T>(this bool @this, T a, T b)
-    => @this ? a : b;
+		=> @this ? a : b;
 
     /// <summary> Returns a shallow copy of this array. </summary>
     public static T[] MakeCopy<T>(this T[] @this)
@@ -158,13 +158,13 @@ public static class Extensions
     }
     /// <summary> Returns a shallow copy of this list. </summary>
     public static List<T> MakeCopy<T>(this List<T> @this)
-    => new(@this);
+		=> new(@this);
     /// <summary> Returns a shallow copy of this list. </summary>
     public static HashSet<T> MakeCopy<T>(this HashSet<T> @this)
-    => new(@this);
+		=> new(@this);
     /// <summary> Returns a shallow copy of this list. </summary>
     public static Dictionary<TKey, TValue> MakeCopy<TKey, TValue>(this Dictionary<TKey, TValue> @this)
-    => new(@this);
+		=> new(@this);
 
     /// <summary> Swaps the references of this object and a. </summary>
     public static void SwapWith<T>(ref this T @this, ref T a) where T : struct

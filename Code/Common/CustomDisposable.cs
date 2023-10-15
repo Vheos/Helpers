@@ -13,5 +13,5 @@ public class CustomDisposable : IDisposable
 
     // Finalizers
     public void Dispose()
-    => _onDispose();
+		=> _onDispose();
 }

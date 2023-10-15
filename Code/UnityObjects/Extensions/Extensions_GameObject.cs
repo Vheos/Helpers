@@ -7,20 +7,20 @@ public static class Extensions_GameObject
 {
     // Various
     public static void Activate(this GameObject t)
-    => t.SetActive(true);
+		=> t.SetActive(true);
     public static void Deactivate(this GameObject t)
-    => t.SetActive(false);
+		=> t.SetActive(false);
     public static bool IsActive(this GameObject t)
-    => t.activeSelf;
+		=> t.activeSelf;
     public static bool IsActiveInHierarchy(this GameObject t)
-    => t.activeInHierarchy;
+		=> t.activeInHierarchy;
     public static void ToggleActive(this GameObject t)
-    => t.SetActive(!t.activeSelf);
+		=> t.SetActive(!t.activeSelf);
 
     #region HIERARCHY SETTERS
     /// <summary> Places this object at the root of the hierarchy </summary>
     public static void Unparent(this GameObject @this, bool retainWorldTransform = false)
-    => @this.transform.SetParent(null, retainWorldTransform);
+		=> @this.transform.SetParent(null, retainWorldTransform);
     /// <summary> Moves this object to the root of the chosen scene </summary>
     public static void MoveToScene(this GameObject @this, Scene scene)
     {
@@ -43,49 +43,49 @@ public static class Extensions_GameObject
     }
     /// <summary> Attaches this object to a. </summary>
     public static void BecomeChildOf(this GameObject @this, GameObject a, bool retainWorldTransform = false)
-    => @this.transform.SetParent(a.transform, retainWorldTransform);
+		=> @this.transform.SetParent(a.transform, retainWorldTransform);
     #endregion
     #region HIERARCHY SETTERS, COMPONENT
     /// <summary> Attaches this objects to a's parent. </summary>
     public static void BecomeSiblingOf(this GameObject @this, Component a, bool retainWorldTransform = false)
-    => @this.BecomeSiblingOf(a.gameObject, retainWorldTransform);
+		=> @this.BecomeSiblingOf(a.gameObject, retainWorldTransform);
     /// <summary> Attaches this object to a. </summary>
     public static void BecomeChildOf(this GameObject @this, Component a, bool retainWorldTransform = false)
-    => @this.BecomeChildOf(a.gameObject, retainWorldTransform);
+		=> @this.BecomeChildOf(a.gameObject, retainWorldTransform);
     #endregion
 
     #region HIERARCHY CHECKS
     /// <summary> Checks whether this object is at the topmost level in the hierarchy. </summary>
     public static bool IsAtRoot(this GameObject @this)
-    => @this.transform.parent == null;
+		=> @this.transform.parent == null;
     /// <summary> Checks whether this object has a parent. </summary>
     public static bool HasParent(this GameObject @this)
-    => @this.transform.parent != null;
+		=> @this.transform.parent != null;
     /// <summary> Checks whether this object has a child. </summary>
     public static bool HasAnyChild(this GameObject @this)
-    => @this.transform.childCount > 0;
+		=> @this.transform.childCount > 0;
     #endregion
     #region HIERARCHY CHECKS, GAMEOBJECT
     /// <summary> Checks whether this object is right above a in the heirarchy. </summary>
     public static bool IsParentOf(this GameObject @this, GameObject a)
-    => @this.transform == a.transform.parent;
+		=> @this.transform == a.transform.parent;
     /// <summary> Checks whether this object has the same parent as a. </summary>
     public static bool IsSiblingOf(this GameObject @this, GameObject a)
-    => @this.transform.parent == a.transform.parent;
+		=> @this.transform.parent == a.transform.parent;
     /// <summary> Checks whether this object is right below a in the hierarchy. </summary>
     public static bool IsChildOf(this GameObject @this, GameObject a)
-    => @this.transform.parent == a.transform;
+		=> @this.transform.parent == a.transform;
     #endregion
     #region HIERARCHY CHECKS, COMPONENT
     /// <summary> Checks whether this object is right above a in the heirarchy. </summary>
     public static bool IsParentOf(this GameObject @this, Component a)
-    => @this.IsParentOf(a.gameObject);
+		=> @this.IsParentOf(a.gameObject);
     /// <summary> Checks whether this object has the same parent as a. </summary>
     public static bool IsSiblingOf(this GameObject @this, Component a)
-    => @this.IsSiblingOf(a.gameObject);
+		=> @this.IsSiblingOf(a.gameObject);
     /// <summary> Checks whether this object is right below a in the hierarchy. </summary>
     public static bool IsChildOf(this GameObject @this, Component a)
-    => @this.IsChildOf(a.gameObject);
+		=> @this.IsChildOf(a.gameObject);
     #endregion
 
     #region HIERARCHY GETTERS
@@ -127,134 +127,134 @@ public static class Extensions_GameObject
     #region SPATIAL, GAMEOBJECT
     /// <summary> Returns the distance between this object and a. </summary>
     public static float DistanceTo(this GameObject @this, GameObject a)
-    => @this.transform.position.DistanceTo(a);
+		=> @this.transform.position.DistanceTo(a);
     /// <summary> Returns the offset from this object to a. </summary>
     public static Vector3 OffsetTo(this GameObject @this, GameObject a)
-    => @this.transform.position.OffsetTo(a);
+		=> @this.transform.position.OffsetTo(a);
     /// <summary> Returns the offset from a to this object. </summary>
     public static Vector3 OffsetFrom(this GameObject @this, GameObject a)
-    => @this.transform.position.OffsetFrom(a);
+		=> @this.transform.position.OffsetFrom(a);
     /// <summary> Returns the direction from this object towards a. </summary>
     public static Vector3 DirectionTowards(this GameObject @this, GameObject a)
-    => @this.transform.position.DirectionTowards(a);
+		=> @this.transform.position.DirectionTowards(a);
     /// <summary> Returns the direction from a towards this object. </summary>
     public static Vector3 DirectionAwayFrom(this GameObject @this, GameObject a)
-    => @this.transform.position.DirectionAwayFrom(a);
+		=> @this.transform.position.DirectionAwayFrom(a);
     /// <summary> Returns a ray starting at this object and going towards towards a. </summary>
     public static Ray RayTowards(this GameObject @this, GameObject a)
-    => @this.transform.position.RayTowards(a);
+		=> @this.transform.position.RayTowards(a);
     /// <summary> Returns a ray starting at a and going towards this object. </summary>
     public static Ray RayAwayFrom(this GameObject @this, GameObject a)
-    => @this.transform.position.RayAwayFrom(a);
+		=> @this.transform.position.RayAwayFrom(a);
 
     /// <summary> Returns the on-screen distance between this object and a from camera b's perspective. </summary>
     public static float ScreenDistanceTo(this GameObject @this, GameObject a, Camera b)
-    => @this.transform.position.ScreenDistanceTo(a, b);
+		=> @this.transform.position.ScreenDistanceTo(a, b);
     /// <summary> Returns the on-screen offset from this object to a from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetTo(this GameObject @this, GameObject a, Camera b)
-    => @this.transform.position.ScreenOffsetTo(a, b);
+		=> @this.transform.position.ScreenOffsetTo(a, b);
     /// <summary> Returns the on-screen offset from a to this object from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetFrom(this GameObject @this, GameObject a, Camera b)
-    => @this.transform.position.ScreenOffsetFrom(a, b);
+		=> @this.transform.position.ScreenOffsetFrom(a, b);
     /// <summary> Returns the on-screen direction from this object towards a from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionTowards(this GameObject @this, GameObject a, Camera b)
-    => @this.transform.position.ScreenDirectionTowards(a, b);
+		=> @this.transform.position.ScreenDirectionTowards(a, b);
     /// <summary> Returns the on-screen direction from a towards this object from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionAwayFrom(this GameObject @this, GameObject a, Camera b)
-    => @this.transform.position.ScreenDirectionAwayFrom(a, b);
+		=> @this.transform.position.ScreenDirectionAwayFrom(a, b);
     #endregion
     #region SPATIAL, COMPONENT
     /// <summary> Returns the distance between this object and a. </summary>
     public static float DistanceTo(this GameObject @this, Component a)
-    => @this.transform.position.DistanceTo(a);
+		=> @this.transform.position.DistanceTo(a);
     /// <summary> Returns the offset from this object to a. </summary>
     public static Vector3 OffsetTo(this GameObject @this, Component a)
-    => @this.transform.position.OffsetTo(a);
+		=> @this.transform.position.OffsetTo(a);
     /// <summary> Returns the offset from a to this object. </summary>
     public static Vector3 OffsetFrom(this GameObject @this, Component a)
-    => @this.transform.position.OffsetFrom(a);
+		=> @this.transform.position.OffsetFrom(a);
     /// <summary> Returns the direction from this object towards a. </summary>
     public static Vector3 DirectionTowards(this GameObject @this, Component a)
-    => @this.transform.position.DirectionTowards(a);
+		=> @this.transform.position.DirectionTowards(a);
     /// <summary> Returns the direction from a towards this object. </summary>
     public static Vector3 DirectionAwayFrom(this GameObject @this, Component a)
-    => @this.transform.position.DirectionAwayFrom(a);
+		=> @this.transform.position.DirectionAwayFrom(a);
     /// <summary> Returns a ray starting at this object and going towards towards a. </summary>
     public static Ray RayTowards(this GameObject @this, Component a)
-    => @this.transform.position.RayTowards(a);
+		=> @this.transform.position.RayTowards(a);
     /// <summary> Returns a ray starting at a and going towards this object. </summary>
     public static Ray RayAwayFrom(this GameObject @this, Component a)
-    => @this.transform.position.RayAwayFrom(a);
+		=> @this.transform.position.RayAwayFrom(a);
 
     /// <summary> Returns the on-screen distance between this object and a from camera b's perspective. </summary>
     public static float ScreenDistanceTo(this GameObject @this, Component a, Camera b)
-    => @this.transform.position.ScreenDistanceTo(a, b);
+		=> @this.transform.position.ScreenDistanceTo(a, b);
     /// <summary> Returns the on-screen offset from this object to a from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetTo(this GameObject @this, Component a, Camera b)
-    => @this.transform.position.ScreenOffsetTo(a, b);
+		=> @this.transform.position.ScreenOffsetTo(a, b);
     /// <summary> Returns the on-screen offset from a to this object from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetFrom(this GameObject @this, Component a, Camera b)
-    => @this.transform.position.ScreenOffsetFrom(a, b);
+		=> @this.transform.position.ScreenOffsetFrom(a, b);
     /// <summary> Returns the on-screen direction from this object towards a from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionTowards(this GameObject @this, Component a, Camera b)
-    => @this.transform.position.ScreenDirectionTowards(a, b);
+		=> @this.transform.position.ScreenDirectionTowards(a, b);
     /// <summary> Returns the on-screen direction from a towards this object from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionAwayFrom(this GameObject @this, Component a, Camera b)
-    => @this.transform.position.ScreenDirectionAwayFrom(a, b);
+		=> @this.transform.position.ScreenDirectionAwayFrom(a, b);
     #endregion
     #region SPATIAL, VECTOR
     /// <summary> Returns the distance between this object and a. </summary>
     public static float DistanceTo(this GameObject @this, Vector3 a)
-    => @this.transform.position.DistanceTo(a);
+		=> @this.transform.position.DistanceTo(a);
     /// <summary> Returns the offset from this object to a. </summary>
     public static Vector3 OffsetTo(this GameObject @this, Vector3 a)
-    => @this.transform.position.OffsetTo(a);
+		=> @this.transform.position.OffsetTo(a);
     /// <summary> Returns the offset from a to this object. </summary>
     public static Vector3 OffsetFrom(this GameObject @this, Vector3 a)
-    => @this.transform.position.OffsetFrom(a);
+		=> @this.transform.position.OffsetFrom(a);
     /// <summary> Returns the direction from this object towards a. </summary>
     public static Vector3 DirectionTowards(this GameObject @this, Vector3 a)
-    => @this.transform.position.DirectionTowards(a);
+		=> @this.transform.position.DirectionTowards(a);
     /// <summary> Returns the direction from a towards this object. </summary>
     public static Vector3 DirectionAwayFrom(this GameObject @this, Vector3 a)
-    => @this.transform.position.DirectionAwayFrom(a);
+		=> @this.transform.position.DirectionAwayFrom(a);
     /// <summary> Returns a ray starting at this object and going towards towards a. </summary>
     public static Ray RayTowards(this GameObject @this, Vector3 a)
-    => @this.transform.position.RayTowards(a);
+		=> @this.transform.position.RayTowards(a);
     /// <summary> Returns a ray starting at a and going towards this object. </summary>
     public static Ray RayAwayFrom(this GameObject @this, Vector3 a)
-    => @this.transform.position.RayAwayFrom(a);
+		=> @this.transform.position.RayAwayFrom(a);
 
     /// <summary> Returns the on-screen distance between this object and a from camera b's perspective. </summary>
     public static float ScreenDistanceTo(this GameObject @this, Vector3 a, Camera b)
-    => @this.transform.position.ScreenDistanceTo(a, b);
+		=> @this.transform.position.ScreenDistanceTo(a, b);
     /// <summary> Returns the on-screen offset from this object to a from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetTo(this GameObject @this, Vector3 a, Camera b)
-    => @this.transform.position.ScreenOffsetTo(a, b);
+		=> @this.transform.position.ScreenOffsetTo(a, b);
     /// <summary> Returns the on-screen offset from a to this object from camera b's perspective. </summary>
     public static Vector2 ScreenOffsetFrom(this GameObject @this, Vector3 a, Camera b)
-    => @this.transform.position.ScreenOffsetFrom(a, b);
+		=> @this.transform.position.ScreenOffsetFrom(a, b);
     /// <summary> Returns the on-screen direction from this object towards a from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionTowards(this GameObject @this, Vector3 a, Camera b)
-    => @this.transform.position.ScreenDirectionTowards(a, b);
+		=> @this.transform.position.ScreenDirectionTowards(a, b);
     /// <summary> Returns the on-screen direction from a towards this object from camera b's perspective. </summary>
     public static Vector2 ScreenDirectionAwayFrom(this GameObject @this, Vector3 a, Camera b)
-    => @this.transform.position.ScreenDirectionAwayFrom(a, b);
+		=> @this.transform.position.ScreenDirectionAwayFrom(a, b);
     #endregion
 
     #region COMPONENTS
     /// <summary> Checks whether this object has a component T. </summary>
     public static bool HasComponent<T>(this GameObject @this) where T : Component
-    => @this.GetComponent<T>() != null;
+		=> @this.GetComponent<T>() != null;
     /// <summary> Checks whether this object's parent has a component T. </summary>
     public static bool ParentHasComponent<T>(this GameObject @this) where T : Component
-    => @this.GetParentComponent<T>() != null;
+		=> @this.GetParentComponent<T>() != null;
     /// <summary> Checks whether any of this object's children has a component T. </summary>
     public static bool ChildHasComponent<T>(this GameObject @this) where T : Component
-    => @this.GetChildComponent<T>() != null;
+		=> @this.GetChildComponent<T>() != null;
     /// <summary> Checks whether any of this object's siblings has a component T. </summary>
     public static bool SiblingHasComponent<T>(this GameObject @this) where T : Component
-    => @this.GetSiblingComponent<T>() != null;
+		=> @this.GetSiblingComponent<T>() != null;
 
     /// <summary> Returns the first component of type T in this object's parent. </summary>
     public static T GetParentComponent<T>(this GameObject @this) where T : Component
@@ -437,7 +437,7 @@ public static class Extensions_GameObject
     #region PHYSICS
     /// <summary> Makes this object react to (or ignore) physics forces. </summary>
     public static void SetPhysics(this GameObject @this, bool state)
-    => @this.GetComponent<Rigidbody>().isKinematic = !state;
+		=> @this.GetComponent<Rigidbody>().isKinematic = !state;
     /// <summary> Makes this object collide with (or ignore) other colliders. </summary>
     public static void SetCollisions(this GameObject @this, bool state)
     {
@@ -468,15 +468,15 @@ public static class Extensions_GameObject
     }
     /// <summary> Copies a's transform. </summary>
     public static void CopyTransformFrom(this GameObject @this, GameObject a)
-    => CopyLocalTransform(a.transform, @this.transform);
+		=> CopyLocalTransform(a.transform, @this.transform);
     /// <summary> Copies a's rigidbody. </summary>
     public static void CopyRigidbodyFrom(this GameObject @this, GameObject a, bool copyMassAndTensors = false)
-    => CopyRigidbody(a.GetComponent<Rigidbody>(), @this.GetComponent<Rigidbody>(), copyMassAndTensors);
+		=> CopyRigidbody(a.GetComponent<Rigidbody>(), @this.GetComponent<Rigidbody>(), copyMassAndTensors);
     #endregion
     #region PHYSICS, COMPONENT
     /// <summary> Makes this object collide with (or ignore) object a. </summary>
     public static void SetCollisionsWith(this GameObject @this, Component a, bool state)
-    => @this.SetCollisionsWith(a.gameObject, state);
+		=> @this.SetCollisionsWith(a.gameObject, state);
     /// <summary> Makes this object collide with (or ignore) objects from aCollection. </summary>
     public static void SetCollisionsWith(this GameObject @this, IEnumerable<Component> aCollection, bool state)
     {
@@ -485,10 +485,10 @@ public static class Extensions_GameObject
     }
     /// <summary> Copies a's transform. </summary>
     public static void CopyTransformFrom(this GameObject @this, Component a)
-    => @this.CopyTransformFrom(a.gameObject);
+		=> @this.CopyTransformFrom(a.gameObject);
     /// <summary> Copies a's rigidbody. </summary>
     public static void CopyRigidbodyFrom(this GameObject @this, Component a, bool copyMassAndTensors = false)
-    => @this.CopyRigidbodyFrom(a.gameObject, copyMassAndTensors);
+		=> @this.CopyRigidbodyFrom(a.gameObject, copyMassAndTensors);
     #endregion
 
     #region PRIVATE UTILITIES

@@ -5,9 +5,9 @@ public static class Extensions_MonoBehaviour
 {
     // Various
     public static void Enable(this MonoBehaviour t)
-    => t.enabled = true;
+		=> t.enabled = true;
     public static void Disable(this MonoBehaviour t)
-    => t.enabled = false;
+		=> t.enabled = false;
 
     // Coroutines
     public static Coroutine ExecuteAfterUpdate(this MonoBehaviour @this, Action action)

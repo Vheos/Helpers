@@ -119,25 +119,25 @@ public struct Vector4Int : IEquatable<Vector4Int>, IFormattable
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Distance(Vector4Int a, Vector4Int b)
-    => (a - b).magnitude;
+		=> (a - b).magnitude;
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int Min(Vector4Int a, Vector4Int b)
-    => new(Mathf.Min(a.x, b.x), Mathf.Min(a.y, b.y), Mathf.Min(a.z, b.z), Mathf.Min(a.w, b.w));
+		=> new(Mathf.Min(a.x, b.x), Mathf.Min(a.y, b.y), Mathf.Min(a.z, b.z), Mathf.Min(a.w, b.w));
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int Max(Vector4Int a, Vector4Int b)
-    => new(Mathf.Max(a.x, b.x), Mathf.Max(a.y, b.y), Mathf.Max(a.z, b.z), Mathf.Min(a.w, b.w));
+		=> new(Mathf.Max(a.x, b.x), Mathf.Max(a.y, b.y), Mathf.Max(a.z, b.z), Mathf.Min(a.w, b.w));
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int Scale(Vector4Int a, Vector4Int b)
-    => new(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+		=> new(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int FloorToInt(Vector4 v)
-    => new(Mathf.FloorToInt(v.x), Mathf.FloorToInt(v.y), Mathf.FloorToInt(v.z), Mathf.FloorToInt(v.w));
+		=> new(Mathf.FloorToInt(v.x), Mathf.FloorToInt(v.y), Mathf.FloorToInt(v.z), Mathf.FloorToInt(v.w));
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int CeilToInt(Vector4 v)
-    => new(Mathf.CeilToInt(v.x), Mathf.CeilToInt(v.y), Mathf.CeilToInt(v.z), Mathf.CeilToInt(v.w));
+		=> new(Mathf.CeilToInt(v.x), Mathf.CeilToInt(v.y), Mathf.CeilToInt(v.z), Mathf.CeilToInt(v.w));
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int RoundToInt(Vector4 v)
-    => new(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z), Mathf.RoundToInt(v.w));
+		=> new(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), Mathf.RoundToInt(v.z), Mathf.RoundToInt(v.w));
 
     private static readonly Vector4Int s_maxValueVector = new(int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue);
     private static readonly Vector4Int s_minValueVector = new(int.MinValue, int.MinValue, int.MinValue, int.MinValue);
@@ -191,48 +191,48 @@ public struct Vector4Int : IEquatable<Vector4Int>, IFormattable
     // Operators
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static implicit operator Vector4(Vector4Int v)
-    => new(v.x, v.y, v.z, v.w);
+		=> new(v.x, v.y, v.z, v.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static explicit operator Vector3(Vector4Int v)
-    => new(v.x, v.y, v.z);
+		=> new(v.x, v.y, v.z);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static explicit operator Vector2(Vector4Int v)
-    => new(v.x, v.y);
+		=> new(v.x, v.y);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static explicit operator Vector3Int(Vector4Int v)
-    => new(v.x, v.y, v.z);
+		=> new(v.x, v.y, v.z);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static explicit operator Vector2Int(Vector4Int v)
-    => new(v.x, v.y);
+		=> new(v.x, v.y);
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator +(Vector4Int a, Vector4Int b)
-    => new(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+		=> new(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator -(Vector4Int a)
-    => new(-a.x, -a.y, -a.z, -a.w);
+		=> new(-a.x, -a.y, -a.z, -a.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator -(Vector4Int a, Vector4Int b)
-    => new(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+		=> new(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator *(Vector4Int a, Vector4Int b)
-    => new(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+		=> new(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator *(Vector4Int a, int b)
-    => new(a.x * b, a.y * b, a.z * b, a.w * b);
+		=> new(a.x * b, a.y * b, a.z * b, a.w * b);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator *(int a, Vector4Int b)
-    => new(a * b.x, a * b.y, a * b.z, a * b.z);
+		=> new(a * b.x, a * b.y, a * b.z, a * b.z);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Vector4Int operator /(Vector4Int a, int b)
-    => new(a.x / b, a.y / b, a.z / b, a.w / b);
+		=> new(a.x / b, a.y / b, a.z / b, a.w / b);
 
     // IEquatable
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public override bool Equals(object other) => other is Vector4Int asVector && Equals(asVector);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Equals(Vector4Int other)
-    => this == other;
+		=> this == other;
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public override int GetHashCode()
     {
@@ -242,18 +242,18 @@ public struct Vector4Int : IEquatable<Vector4Int>, IFormattable
     }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool operator ==(Vector4Int lhs, Vector4Int rhs)
-    => lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
+		=> lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool operator !=(Vector4Int lhs, Vector4Int rhs)
-    => !(lhs == rhs);
+		=> !(lhs == rhs);
 
     // IFormattable
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public override string ToString()
-    => ToString(null, null);
+		=> ToString(null, null);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public string ToString(string format)
-    => ToString(format, null);
+		=> ToString(format, null);
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public string ToString(string format, IFormatProvider formatProvider)
     {

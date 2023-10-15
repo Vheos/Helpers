@@ -5,16 +5,16 @@ public static class Extensions_IList
     #region VALID
     /// <summary> Tests whether index a is within this list's bounds. </summary>
     public static bool IsValid<T>(this IList<T> @this, int a)
-    => a >= 0 && a < @this.Count;
+		=> a >= 0 && a < @this.Count;
     /// <summary> If this list contains index a, returns its value. Otherwise, return the default value for this list's type. </summary>
     public static T DefaultOnInvalid<T>(this IList<T> @this, int a)
-    => @this.IsValid(a) ? @this[a] : default;
+		=> @this.IsValid(a) ? @this[a] : default;
     #endregion
 
     #region GET
     /// <summary> Returns the first element from this list. </summary>
     public static T First<T>(this IList<T> @this)
-    => @this[0];
+		=> @this[0];
     /// <summary> Returns the first non-null element from this list. </summary>
     public static T FirstNonNull<T>(this IList<T> @this) where T : class
     {
@@ -25,7 +25,7 @@ public static class Extensions_IList
     }
     /// <summary> Returns the last element from this list. </summary>
     public static T Last<T>(this IList<T> @this)
-    => @this[@this.Count - 1];
+		=> @this[@this.Count - 1];
     /// <summary> Returns the last non-null element from this list. </summary>
     public static T LastNonNull<T>(this IList<T> @this) where T : class
     {
@@ -38,7 +38,7 @@ public static class Extensions_IList
     #region SET
     /// <summary> Sets the first element from this list to the object a. </summary>
     public static void SetFirst<T>(this IList<T> @this, T a)
-    => @this[0] = a;
+		=> @this[0] = a;
     /// <summary> Sets the first non-null element from this list to the object a. </summary>
     public static void SetFirstNonNull<T>(this IList<T> @this, T a) where T : class
     {
@@ -51,7 +51,7 @@ public static class Extensions_IList
     }
     /// <summary> Sets the last element from this list to the value a. </summary>
     public static void SetLast<T>(this IList<T> @this, T a)
-    => @this[@this.Count - 1] = a;
+		=> @this[@this.Count - 1] = a;
     /// <summary> Sets the last non-null element from this list to the value a. </summary>
     public static void SetLastNonNull<T>(this IList<T> @this, T a) where T : class
     {
@@ -66,7 +66,7 @@ public static class Extensions_IList
     #region REMOVE
     /// <summary> Removes the first element from this list. </summary>
     public static void RemoveFirst<T>(this IList<T> @this)
-    => @this.RemoveAt(0);
+		=> @this.RemoveAt(0);
     /// <summary> Removes the first non-null element from this list. </summary>
     public static void RemoveFirstNonNull<T>(this IList<T> @this)
     {
@@ -79,7 +79,7 @@ public static class Extensions_IList
     }
     /// <summary> Removes the last element from this list. </summary>
     public static void RemoveLast<T>(this IList<T> @this)
-    => @this.RemoveAt(@this.Count - 1);
+		=> @this.RemoveAt(@this.Count - 1);
     /// <summary> Removes the last non-null element from this list. </summary>
     public static void RemoveLastNonNull<T>(this IList<T> @this)
     {

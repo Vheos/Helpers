@@ -11,7 +11,7 @@ public static class Extensions_ICollection
     }
     /// <inheritdoc cref="Add{T}(ICollection{T}, IEnumerable{T})"/>
     public static void Add<T>(this ICollection<T> @this, params T[] a)
-    => @this.Add(a as IEnumerable<T>);
+		=> @this.Add(a as IEnumerable<T>);
     /// <summary> Removes elements a from this collection. </summary>
     public static void Remove<T>(this ICollection<T> @this, IEnumerable<T> a)
     {
@@ -71,7 +71,7 @@ public static class Extensions_ICollection
     }
     /// <inheritdoc cref="TryAddUnique{T}(ICollection{T}, IEnumerable{T})"/>
     public static bool TryAddUnique<T>(this ICollection<T> @this, params T[] a)
-    => @this.TryAddUnique(a as IEnumerable<T>);
+		=> @this.TryAddUnique(a as IEnumerable<T>);
     /// <summary> Removes element a if this collection contains it. Returns whether the collection was modified or not. </summary>
     public static bool TryRemove<T>(this ICollection<T> @this, T a)
     {
@@ -96,20 +96,20 @@ public static class Extensions_ICollection
     }
     /// <inheritdoc cref="TryRemove{T}(ICollection{T}, IEnumerable{T})"/>
     public static bool TryRemove<T>(this ICollection<T> @this, params T[] a)
-    => @this.TryAddUnique(a as IEnumerable<T>);
+		=> @this.TryAddUnique(a as IEnumerable<T>);
     #endregion
     #region EMPTY
     /// <summary> Tests whether this collection contains zero element. </summary>
     public static bool IsEmpty<T>(this ICollection<T> @this)
-    => @this.Count == 0;
+		=> @this.Count == 0;
     /// <summary> Tests whether this collection contains any elements. </summary>
     public static bool IsNotEmpty<T>(this ICollection<T> @this)
-    => @this.Count != 0;
+		=> @this.Count != 0;
     /// <summary> Tests whether this collection contains zero element. </summary>
     public static bool IsNullOrEmpty<T>(this ICollection<T> @this)
-    => @this == null || @this.Count == 0;
+		=> @this == null || @this.Count == 0;
     /// <summary> Tests whether this collection contains any elements. </summary>
     public static bool IsNotNullOrEmpty<T>(this ICollection<T> @this)
-    => @this != null && @this.Count != 0;
+		=> @this != null && @this.Count != 0;
     #endregion
 }
