@@ -1,5 +1,6 @@
 ﻿namespace Vheos.Helpers.Common;
 
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -119,9 +120,11 @@ public static class Extensions
     /// <summary> If test a evaluates to true, returns a. Otherwise, returns b. </summary>
     public static T ChooseIf<T>(this T @this, Func<T, bool> a, T b = default)
     => a(@this) ? @this : b;
-    /// <summary> If test a evaluates to true, returns a. Otherwise, returns b. </summary>
+    /// <summary> If this object is non-null, returns a. Otherwise, returns b. </summary>
     public static T ChooseIfNonNull<T>(this T @this, T b = default)
     => @this != null ? @this : b;
+    public static T EmptyIfNull<T>(this T @this) where T : ICollection,  new()
+    => @this ?? new();
 
     /// <summary> Returns this bool, then inverts it </summary>
     public static bool Toggle(this ref bool @this)
@@ -134,6 +137,7 @@ public static class Extensions
     {
         if (!@this)
             return false;
+
         @this = false;
         return true;
     }
