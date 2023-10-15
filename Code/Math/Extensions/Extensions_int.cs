@@ -99,31 +99,31 @@ public static class Extensions_int
     // Trig
     /// <summary>Returns the sine of <c><paramref name="this"/></c> degrees</summary>
     public static float Sin(this int @this)
-    => Mathf.Sin(@this * DEG_TO_RAD);
+    => (float)System.Math.Sin(@this * DEG_TO_RAD);
     /// <summary>Returns the cosine of <c><paramref name="this"/></c> degrees</summary>
     public static float Cos(this int @this)
-    => Mathf.Cos(@this * DEG_TO_RAD);
+    => (float)System.Math.Cos(@this * DEG_TO_RAD);
     /// <summary>Returns the tangent of <c><paramref name="this"/></c> degrees</summary>
     public static float Tan(this int @this)
-    => Mathf.Tan(@this * DEG_TO_RAD);
+    => (float)System.Math.Tan(@this * DEG_TO_RAD);
     /// <summary>Returns the cotangent of <c><paramref name="this"/></c> degrees</summary>
     public static float Cot(this int @this)
-    => 1f / Mathf.Tan(@this * DEG_TO_RAD);
+    => 1f / @this.Tan();
     /// <summary>Returns the secant of <c><paramref name="this"/></c> degrees</summary>
     public static float Sec(this int @this)
-    => 1f / Mathf.Cos(@this * DEG_TO_RAD);
+    => 1f / @this.Cos();
     /// <summary>Returns the cosecant of <c><paramref name="this"/></c> degrees</summary>
     public static float Csc(this int @this)
-    => 1f / Mathf.Sin(@this * DEG_TO_RAD);
+    => 1f / @this.Sin();
     /// <summary>Returns the arcsine of <c><paramref name="this"/></c> degrees</summary>
     public static float ArcSin(this int @this)
-    => Mathf.Asin(@this * DEG_TO_RAD);
+    => (float)System.Math.Asin(@this * DEG_TO_RAD);
     /// <summary>Returns the arccosine of <c><paramref name="this"/></c> degrees</summary>
     public static float ArcCos(this int @this)
-    => Mathf.Acos(@this * DEG_TO_RAD);
+    => (float)System.Math.Acos(@this * DEG_TO_RAD);
     /// <summary>Returns the arctangent of <c><paramref name="this"/></c> degrees</summary>
     public static float ArcTan(this int @this)
-    => Mathf.Atan(@this * DEG_TO_RAD);
+    => (float)System.Math.Atan(@this * DEG_TO_RAD);
 
     // Round
     /// <inheritdoc cref="Extensions_float.RoundToMultiple(float, float)"/>

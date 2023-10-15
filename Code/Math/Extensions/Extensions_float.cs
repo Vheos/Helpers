@@ -120,39 +120,39 @@ public static class Extensions_float
     /// <summary>Returns the sine of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Sin(this float @this, bool degrees = false)
-    => Mathf.Sin(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Sin(degrees ? @this * DEG_TO_RAD : @this);
     /// <summary>Returns the cosine of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Cos(this float @this, bool degrees = false)
-    => Mathf.Cos(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Cos(degrees ? @this * DEG_TO_RAD : @this);
     /// <summary>Returns the tangent of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Tan(this float @this, bool degrees = false)
-    => Mathf.Tan(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Tan(degrees ? @this * DEG_TO_RAD : @this);
     /// <summary>Returns the cotangent of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Cot(this float @this, bool degrees = false)
-    => 1f / Mathf.Tan(degrees ? @this * DEG_TO_RAD : @this);
+    => 1f / @this.Tan(degrees);
     /// <summary>Returns the secant of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Sec(this float @this, bool degrees = false)
-    => 1f / Mathf.Cos(degrees ? @this * DEG_TO_RAD : @this);
+    => 1f / @this.Cos(degrees);
     /// <summary>Returns the secant of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float Csc(this float @this, bool degrees = false)
-    => 1f / Mathf.Sin(degrees ? @this * DEG_TO_RAD : @this);
+    => 1f / @this.Sin(degrees);
     /// <summary>Returns the arcsine of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float ArcSin(this float @this, bool degrees = false)
-    => Mathf.Asin(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Asin(degrees ? @this * DEG_TO_RAD : @this);
     /// <summary>Returns the arccosine of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float ArcCos(this float @this, bool degrees = false)
-    => Mathf.Acos(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Acos(degrees ? @this * DEG_TO_RAD : @this);
     /// <summary>Returns the arctangent of <c><paramref name="this"/></c> radians
     /// (or degrees, if <c><paramref name="degrees"/></c> is <c><see langword="true"/></c>)</summary>
     public static float ArcTan(this float @this, bool degrees = false)
-    => Mathf.Atan(degrees ? @this * DEG_TO_RAD : @this);
+    => (float)System.Math.Atan(degrees ? @this * DEG_TO_RAD : @this);
 
     // Round
     /// <summary>Returns <c><paramref name="this"/></c> rounded to the nearest integer</summary>
