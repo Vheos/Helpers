@@ -1,6 +1,6 @@
 ﻿namespace Vheos.Helpers.Collections;
 
-public static class Extensions_ICollections
+public static class Extensions_ICollection
 {
     #region RANGE
     /// <summary> Adds elements a to this collection. </summary>
