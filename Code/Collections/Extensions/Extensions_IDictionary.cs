@@ -11,6 +11,7 @@ public static class Extensions_IDictionary
             r = @this[a];
             return true;
         }
+
         r = default;
         return false;
     }
@@ -22,6 +23,7 @@ public static class Extensions_IDictionary
             r = @this[a];
             return r != null;
         }
+
         r = null;
         return false;
     }

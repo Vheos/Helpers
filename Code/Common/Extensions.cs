@@ -1,9 +1,7 @@
-﻿namespace Vheos.Helpers.Common;
-
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.RegularExpressions;
 
+namespace Vheos.Helpers.Common;
 public static class Extensions
 {
     #region TYPES
@@ -123,7 +121,7 @@ public static class Extensions
     /// <summary> If this object is non-null, returns a. Otherwise, returns b. </summary>
     public static T ChooseIfNonNull<T>(this T @this, T b = default)
     => @this != null ? @this : b;
-    public static T EmptyIfNull<T>(this T @this) where T : ICollection,  new()
+    public static T EmptyIfNull<T>(this T @this) where T : ICollection, new()
     => @this ?? new();
 
     /// <summary> Returns this bool, then inverts it </summary>
@@ -171,7 +169,6 @@ public static class Extensions
     /// <summary> Swaps the references of this object and a. </summary>
     public static void SwapWith<T>(ref this T @this, ref T a) where T : struct
         => (a, @this) = (@this, a);
-
 
 #if NET35
     #region HAS FLAG

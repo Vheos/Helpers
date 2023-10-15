@@ -1,6 +1,6 @@
-﻿namespace Vheos.Helpers.Reflection;
-using System.Reflection;
+﻿using System.Reflection;
 
+namespace Vheos.Helpers.Reflection;
 public static class Extensions
 {
     #region INSTANCE FIELD
@@ -159,7 +159,6 @@ public static class Extensions
     }
     #endregion
 
-
     #region STATIC FIELD
     public static TReturn GetField<TReturn>(this Type type, string fieldName)
     => (TReturn)type.GetField(fieldName, StaticMembers).GetValue(null);
@@ -178,7 +177,6 @@ public static class Extensions
     public static void InvokeMethodVoid(this Type type, string methodName, params object[] methodParams)
     => type.GetMethod(methodName, StaticMembers).Invoke(null, methodParams);
     #endregion
-
 
     #region PRIVATE UTILITIES
     private static BindingFlags InstanceMembers

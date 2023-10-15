@@ -1,7 +1,7 @@
-﻿namespace Vheos.Helpers.Dump;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text;
 
+namespace Vheos.Helpers.Dump;
 public static class Extensions
 {
     /// <summary> Returns a string of tab-separated data of all members of this object. </summary>
@@ -62,6 +62,7 @@ public static class Extensions
                     {
                         value = "[EXCEPTION]";
                     }
+
                     builder.Append(value != null ? value.ToString() : "null").Append("\t");
                 }
             }

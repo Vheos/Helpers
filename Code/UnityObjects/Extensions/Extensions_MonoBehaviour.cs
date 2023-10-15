@@ -69,6 +69,7 @@ public static class Extensions_MonoBehaviour
             action();
             yield return null;
         }
+
         finalAction?.Invoke();
     }
     private static IEnumerator WhileNot(Func<bool> test, Action action, Action finalAction = null)
@@ -78,6 +79,7 @@ public static class Extensions_MonoBehaviour
             action();
             yield return null;
         }
+
         finalAction?.Invoke();
     }
     private static IEnumerator Until(Func<bool> test, Action action, Action finalAction = null)

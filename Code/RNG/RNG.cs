@@ -1,6 +1,6 @@
-﻿namespace Vheos.Helpers.RNG;
-using Vheos.Helpers.Math;
+﻿using Vheos.Helpers.Math;
 
+namespace Vheos.Helpers.RNG;
 public static class RNG
 {
     // Publics

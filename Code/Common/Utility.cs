@@ -1,9 +1,9 @@
-﻿namespace Vheos.Helpers.Common;
-
+﻿
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 
+namespace Vheos.Helpers.Common;
 public static class Utility
 {
     /// <summary> Returns an enumerable of all types in the chosen (or calling) assembly that derive from type T. Ignores unbound generic types. </summary>

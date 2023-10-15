@@ -1,11 +1,11 @@
-﻿#if UNITY
+﻿using System.Globalization;
+using System.Runtime.CompilerServices;
+
+#if UNITY
 
 #pragma warning disable IDE1006 // Naming Styles
 
 namespace Vheos.Helpers.Math;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-
 public struct Vector4Int : IEquatable<Vector4Int>, IFormattable
 {
     // Constants
@@ -257,8 +257,7 @@ public struct Vector4Int : IEquatable<Vector4Int>, IFormattable
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public string ToString(string format, IFormatProvider formatProvider)
     {
-        if (formatProvider == null)
-            formatProvider = CultureInfo.InvariantCulture.NumberFormat;
+        formatProvider ??= CultureInfo.InvariantCulture.NumberFormat;
         return $"({x.ToString(format, formatProvider)}, {y.ToString(format, formatProvider)}, {z.ToString(format, formatProvider)}, {w.ToString(format, formatProvider)})";
     }
 }

@@ -51,7 +51,6 @@ public static class Extensions_Quaternion
     => Quaternion.Slerp(@this, Quaternion.Euler(a), b);
     #endregion
 
-
     #region UNIQUE
     /// <summary> Returns right direction relative to this rotation. </summary>
     public static Vector3 Right(this Quaternion @this)

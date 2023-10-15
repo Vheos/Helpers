@@ -1,7 +1,7 @@
-﻿#if UNITY
-namespace Vheos.Helpers.UnityObjects;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
+#if UNITY
+namespace Vheos.Helpers.UnityObjects;
 public static class Extensions_Component
 {
     // Various
@@ -44,7 +44,6 @@ public static class Extensions_Component
     => @this.gameObject.BecomeChildOf(a, retainWorldTransform);
     #endregion
 
-
     #region HIERARCHY CHECKS
     /// <summary> Checks whether this object is at the topmost level in the hierarchy. </summary>
     public static bool IsAtRoot(this Component @this)
@@ -79,7 +78,6 @@ public static class Extensions_Component
     => @this.gameObject.IsChildOf(a);
     #endregion
 
-
     #region HIERARCHY GETTERS
     /// <summary> Returns this object's child with name a. If it doesn'@this exist, returns null.</summary>
     public static UnityEngine.GameObject FindChild(this Component @this, string a)
@@ -98,7 +96,6 @@ public static class Extensions_Component
     public static UnityEngine.GameObject GetRootAncestor(this Component @this)
     => @this.gameObject.GetRootAncestor();
     #endregion
-
 
     #region SPATIAL, GAMEOBJECT
     /// <summary> Returns the distance between this object and a. </summary>
@@ -218,7 +215,6 @@ public static class Extensions_Component
     => @this.gameObject.ScreenDirectionAwayFrom(a, b);
     #endregion
 
-
     #region COMPONENTS
     /// <inheritdoc cref="GameObject.HasComponent{T}(UnityEngine.GameObject)"/>
     public static bool HasComponent<T>(this Component @this) where T : Component
@@ -284,7 +280,6 @@ public static class Extensions_Component
     => Extensions_GameObject.TryGetComponent(@this.gameObject, out a);   // explicit cast to prevent MissingMethodException in pre-2019.2 mods 
     #endregion
 
-
     #region DESTORY
     /// <summary> Destroys this component. </summary>
     public static void Destroy(this Component @this)
@@ -339,7 +334,6 @@ public static class Extensions_Component
                 UnityEngine.GameObject.DestroyImmediate(component);
     }
     #endregion
-
 
     #region PHYSICS
     /// <summary> Makes this object react to (or ignore) physics forces. </summary>

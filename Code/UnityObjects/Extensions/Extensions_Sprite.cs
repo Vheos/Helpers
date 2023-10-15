@@ -1,7 +1,7 @@
-﻿#if UNITY
-namespace Vheos.Helpers.UnityObjects;
-using Vheos.Helpers.Math;
+﻿using Vheos.Helpers.Math;
 
+#if UNITY
+namespace Vheos.Helpers.UnityObjects;
 public static class Extensions_Sprite
 {
     /// <summary> Returns the texture used by this sprite. </summary>

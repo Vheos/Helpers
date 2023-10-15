@@ -1,7 +1,7 @@
-﻿#if UNITY
-namespace Vheos.Helpers.UnityObjects;
-using Vheos.Helpers.Math;
+﻿using Vheos.Helpers.Math;
 
+#if UNITY
+namespace Vheos.Helpers.UnityObjects;
 public static class Extensions
 {
 
@@ -85,6 +85,7 @@ public static class Extensions
             r += positionFunc(element);
             count++;
         }
+
         return r / count;
     }
     public static Vector3 Midpoint(this IEnumerable<UnityEngine.GameObject> @this)

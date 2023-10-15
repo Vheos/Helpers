@@ -1,8 +1,8 @@
-﻿#if UNITY
-namespace Vheos.Helpers.UnityObjects;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using Vheos.Helpers.Math;
 
+#if UNITY
+namespace Vheos.Helpers.UnityObjects;
 public static class Extensions_GameObject
 {
     // Various
@@ -54,7 +54,6 @@ public static class Extensions_GameObject
     => @this.BecomeChildOf(a.gameObject, retainWorldTransform);
     #endregion
 
-
     #region HIERARCHY CHECKS
     /// <summary> Checks whether this object is at the topmost level in the hierarchy. </summary>
     public static bool IsAtRoot(this GameObject @this)
@@ -89,23 +88,18 @@ public static class Extensions_GameObject
     => @this.IsChildOf(a.gameObject);
     #endregion
 
-
     #region HIERARCHY GETTERS
     /// <summary> Returns this object's child with name a. If it doesn'@this exist, returns null.</summary>
     public static GameObject FindChild(this GameObject @this, string a)
     {
         Transform child = @this.transform.Find(a);
-        return child != null
-            ? child.gameObject
-            : null;
+        return child?.gameObject;
     }
     /// <summary> Returns component T attached to this object's child with name a. If it doesn'@this exist, returns null.</summary>
     public static T FindChild<T>(this GameObject @this, string a) where T : Component
     {
         Transform child = @this.transform.Find(a);
-        return child != null
-            ? child.GetComponent<T>()
-            : null;
+        return child?.GetComponent<T>();
     }
 
     /// <summary> Returns this object's parent. If it doesn'@this exist, returns null. </summary>
@@ -129,7 +123,6 @@ public static class Extensions_GameObject
         return r.gameObject;
     }
     #endregion
-
 
     #region SPATIAL, GAMEOBJECT
     /// <summary> Returns the distance between this object and a. </summary>
@@ -248,7 +241,6 @@ public static class Extensions_GameObject
     public static Vector2 ScreenDirectionAwayFrom(this GameObject @this, Vector3 a, Camera b)
     => @this.transform.position.ScreenDirectionAwayFrom(a, b);
     #endregion
-
 
     #region COMPONENTS
     /// <summary> Checks whether this object has a component T. </summary>
@@ -395,9 +387,7 @@ public static class Extensions_GameObject
     public static T GetOrAddComponent<T>(this GameObject @this) where T : Component
     {
         T component = @this.GetComponent<T>();
-        return component != null
-            ? component
-            : @this.AddComponent<T>();
+        return component ?? @this.AddComponent<T>();
     }
     /// <summary> Returns enumerable of all components of type T in all of these GameObjects. </summary>
     public static IEnumerable<T> GetComponents<T>(this IEnumerable<GameObject> @this) where T : Component
@@ -414,7 +404,6 @@ public static class Extensions_GameObject
         return a != null;
     }
     #endregion
-
 
     #region DESTORY
     /// <summary> Destroys this object. </summary>
@@ -444,7 +433,6 @@ public static class Extensions_GameObject
                 GameObject.DestroyImmediate(gameObject);
     }
     #endregion
-
 
     #region PHYSICS
     /// <summary> Makes this object react to (or ignore) physics forces. </summary>
@@ -502,7 +490,6 @@ public static class Extensions_GameObject
     public static void CopyRigidbodyFrom(this GameObject @this, Component a, bool copyMassAndTensors = false)
     => @this.CopyRigidbodyFrom(a.gameObject, copyMassAndTensors);
     #endregion
-
 
     #region PRIVATE UTILITIES
     private static void CopyLocalTransform(Transform from, Transform to)
