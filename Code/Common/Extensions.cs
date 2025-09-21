@@ -96,8 +96,7 @@ public static class Extensions
         foreach (var flag in (T[])Enum.GetValues(typeof(T)))
             if (@this.HasFlag(flag))
                 a(flag);
-    }
-
+    } 
     public static float ToFloat(this string text)
         => float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out float value) ? value : float.NaN;
     public static int ToInt(this string text)

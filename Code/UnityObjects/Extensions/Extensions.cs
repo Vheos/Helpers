@@ -1,6 +1,6 @@
-﻿using Vheos.Helpers.Math;
+﻿#if UNITY
+using Vheos.Helpers.Math;
 
-#if UNITY
 namespace Vheos.Helpers.UnityObjects;
 public static class Extensions
 {
@@ -24,29 +24,12 @@ public static class Extensions
     /// <summary> Tests whether this curve has at least 2 keys. </summary>
     public static bool IsValid(this AnimationCurve @this)
 		=> @this.length >= 2;
-#if !NET35
     /// <summary> Adds keys a to this curve with all tangents and weights set to 0. </summary>
     public static void AddLinearKeys(this AnimationCurve @this, params (float Time, float Value)[] a)
     {
         for (int i = 0; i < a.Length; i++)
             @this.AddKey(new Keyframe(a[i].Time, a[i].Value, 0f, 0f));
     }
-#endif
-    #endregion
-
-    #region INPUT
-    /// <summary> Checks if this key has just been pressed. </summary>
-    public static bool Pressed(this KeyCode @this)
-		=> Input.GetKeyDown(@this);
-    /// <summary> Checks if this key has just been released. </summary>
-    public static bool Released(this KeyCode @this)
-		=> Input.GetKeyUp(@this);
-    /// <summary> Checks if this key is held down. </summary>
-    public static bool Down(this KeyCode @this)
-		=> Input.GetKey(@this);
-    /// <summary> Checks if this key is resting. </summary>
-    public static bool Up(this KeyCode @this)
-		=> !Input.GetKey(@this);
     #endregion
 
     #region RAYCAST_HIT

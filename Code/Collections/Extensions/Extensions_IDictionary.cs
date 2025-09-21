@@ -56,10 +56,12 @@ public static class Extensions_IDictionary
         return true;
     }
     /// <summary> If this dictionary doesn'@this contain key a, adds it, sets it value to b and returns it. Otherwise, returns found value. </summary>
-    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey a, TValue b) where TValue : class
+    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey a, TValue b = default)
     {
         if (@this.ContainsKey(a))
-            @this.Add(a, b);
+            return @this[a];
+
+        @this.Add(a, b);
         return b;
     }
     #endregion

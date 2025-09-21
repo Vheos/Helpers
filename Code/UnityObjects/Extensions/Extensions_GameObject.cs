@@ -1,8 +1,8 @@
 ﻿#if UNITY
-using UnityEngine.SceneManagement;
-using Vheos.Helpers.Math;
-
 namespace Vheos.Helpers.UnityObjects;
+
+using UnityEngine.SceneManagement;
+
 public static class Extensions_GameObject
 {
     // Various
